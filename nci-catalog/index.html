@@ -1,0 +1,84 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>National Communications Inc. — Product Catalog</title>
+<meta name="description" content="NCI — A full service cabling systems supplier. Newark, NJ.">
+<style>
+:root{--ink:#0f172a;--muted:#64748b;--bg:#f6f7fb;--card:#fff;--brand:#c8102e;--brand2:#1d3a8a;--line:#e5e7eb;--r:16px}
+*{box-sizing:border-box}body{margin:0;font:17px/1.5 system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;color:var(--ink);background:var(--bg)}
+a{color:inherit}header{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.wrap{max-width:1240px;margin:0 auto;padding:0 20px}
+.nav{display:flex;align-items:center;gap:16px;height:68px}.logo{font-weight:800;letter-spacing:.5px;font-size:20px;text-decoration:none}.logo b{color:var(--brand)}
+.nav .sp{flex:1}.nav a.l{text-decoration:none;color:var(--muted);font-weight:600;padding:10px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:48px;padding:0 22px;border-radius:999px;border:0;background:var(--brand);color:#fff;font-weight:700;font-size:16px;text-decoration:none;cursor:pointer}
+.btn.ghost{background:#fff;color:var(--ink);border:1px solid var(--line)}
+.hero{background:linear-gradient(120deg,#0b1d4f 0%,#1d3a8a 55%,#c8102e 140%);color:#fff;overflow:hidden}
+.hero .wrap{display:grid;grid-template-columns:1.3fr 1fr;gap:40px;align-items:center;padding-top:56px;padding-bottom:56px}
+.hero h1{font-size:clamp(32px,5vw,56px);line-height:1.05;margin:0 0 14px}.hero p{opacity:.9;font-size:19px;max-width:560px}
+.hero .cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:22px}.hero img{width:100%;max-width:380px;justify-self:center;border-radius:12px;box-shadow:0 30px 60px rgba(0,0,0,.4);transform:rotate(2deg)}
+.badges{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}.badges span{background:rgba(255,255,255,.14);padding:6px 12px;border-radius:999px;font-size:14px}
+h2{font-size:28px;margin:44px 0 16px}
+.cats{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:14px}
+.cat{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:14px;cursor:pointer;text-align:left;font:inherit;display:flex;flex-direction:column;gap:8px;min-height:150px}
+.cat img{height:80px;object-fit:contain;width:100%}.cat b{font-size:16px}.cat small{color:var(--muted)}.cat:hover{border-color:var(--brand)}
+.tools{display:flex;gap:12px;flex-wrap:wrap;position:sticky;top:68px;background:var(--bg);padding:12px 0;z-index:10}
+.tools input,.tools select{min-height:52px;font:inherit;border:1px solid var(--line);border-radius:12px;padding:0 16px;background:#fff}
+.tools input{flex:1;min-width:220px}.count{color:var(--muted);margin:4px 0 12px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:18px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--r);overflow:hidden;display:flex;flex-direction:column;cursor:pointer;transition:transform .15s,box-shadow .15s;text-align:left;font:inherit;padding:0;color:inherit}
+.card:hover{transform:translateY(-3px);box-shadow:0 12px 30px rgba(15,23,42,.1)}
+.ph{background:#fff;height:190px;display:flex;align-items:center;justify-content:center;padding:16px;border-bottom:1px solid var(--line)}
+.ph img{max-width:100%;max-height:100%;object-fit:contain}.noimg{color:var(--muted);font-size:14px}
+.cb{padding:14px 16px 16px;display:flex;flex-direction:column;gap:6px;flex:1}.tag{font-size:12px;text-transform:uppercase;letter-spacing:.06em;color:var(--brand2);font-weight:700}
+.cb h3{margin:0;font-size:17px;line-height:1.3}.price{margin-top:auto;font-weight:800;font-size:18px}.parts{color:var(--muted);font-size:14px}
+dialog{border:0;border-radius:20px;padding:0;width:min(960px,96vw);max-height:92vh;box-shadow:0 40px 80px rgba(0,0,0,.35)}dialog::backdrop{background:rgba(15,23,42,.6)}
+.md{display:grid;grid-template-columns:1fr 1.4fr}.md .ph{height:auto;min-height:280px;border:0;border-right:1px solid var(--line)}
+.mb{padding:24px;overflow:auto;max-height:92vh}.mb h3{font-size:24px;margin:6px 0 10px}.x{position:absolute;right:12px;top:12px;width:48px;height:48px;border-radius:50%;border:0;background:#f1f5f9;font-size:24px;cursor:pointer}
+table{width:100%;border-collapse:collapse;font-size:14px;margin:14px 0}th,td{padding:8px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}th{background:#f8fafc;font-size:12px;text-transform:uppercase;color:var(--muted)}
+.tw{overflow-x:auto}.note{color:var(--muted);font-size:13px}
+footer{margin-top:60px;background:#0b1d4f;color:#cbd5e1;padding:36px 0}footer .wrap{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px}footer b{color:#fff}
+@media(max-width:800px){.hero .wrap{grid-template-columns:1fr}.hero img{max-width:240px}.md{grid-template-columns:1fr}.md .ph{border-right:0;border-bottom:1px solid var(--line);min-height:200px}.nav a.l{display:none}}
+</style></head><body>
+<header><div class="wrap nav"><a class="logo" href="#top"><b>NCI</b> National Communications Inc.</a><span class="sp"></span><a class="l" href="#cats">Categories</a><a class="l" href="#products">Products</a><a class="btn" href="mailto:andy@trynci.com?subject=Quote%20request">Request a quote</a></div></header>
+<section class="hero" id="top"><div class="wrap"><div>
+<h1>A Full Service Cabling Systems Supplier</h1>
+<p>Bulk cable, connectors, fiber optics, networking products and telephone supplies — custom cable assemblies with same day shipping from Newark, NJ.</p>
+<div class="cta"><a class="btn" href="#products">Browse products</a><a class="btn ghost" href="mailto:andy@trynci.com?subject=Quote%20request">Request a quote</a></div>
+<div class="badges"><span>Custom products</span><span>Same day shipping</span><span>Fast turnaround on quotes</span><span>Quantity discounts</span><span>Credit available</span><span>Federal buyers welcome</span></div>
+</div><img src="img/cover.jpg" alt="NCI catalog cover"></div></section>
+<main class="wrap">
+<h2 id="cats">Shop by category</h2><div class="cats" id="catList"></div>
+<h2 id="products">Products</h2>
+<div class="tools"><input id="q" type="search" placeholder="Search name, part #, description…" aria-label="Search"><select id="c" aria-label="Category"><option value="">All categories</option></select></div>
+<div class="count" id="count"></div><div class="grid" id="grid"></div>
+<p class="note">Prices shown are as printed in the NCI catalog and change frequently — please call or request a quote for the most current pricing.</p>
+</main>
+<dialog id="dlg"><button class="x" aria-label="Close" onclick="dlg.close()">×</button><div class="md"><div class="ph" id="dImg"></div><div class="mb" id="dBody"></div></div></dialog>
+<footer><div class="wrap"><div><b>National Communications Inc.</b><br>100 Branford Place<br>Newark, NJ 07102-1414</div>
+<div><b>Contact</b><br>Toll free 1-800-TRY-NCI-0<br>Tel (973) 733-9200 · Fax (973) 733-9288<br><a href="mailto:andy@trynci.com">andy@trynci.com</a></div>
+<div><b>Hours</b><br>Mon–Fri 7:30–5:30 EST<br>Saturday 7:30–1:30<br><a href="https://www.trynci.com">www.trynci.com</a></div></div></footer>
+<script src="data.js"></script>
+<script>
+const P=window.PRODUCTS,C=window.CATEGORIES,$=s=>document.querySelector(s);
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const parts=p=>(p.rows||[]).map(r=>r[p.cols.findIndex(c=>/part|pvc #/i.test(c))]).filter(Boolean);
+const price=p=>p.price||"Call for pricing";
+const mail=p=>"mailto:andy@trynci.com?subject="+encodeURIComponent("Quote request: "+p.name)+"&body="+encodeURIComponent("Hello Andy,\n\nPlease send a quote for:\n\nProduct: "+p.name+"\nCategory: "+p.cat+(parts(p).length?"\nPart #: "+parts(p).join(", "):"")+"\nCatalog page: "+p.page+"\nQuantity: \n\nName:\nCompany:\nPhone:\n\nThank you.");
+const img=p=>p.img?`<img src="img/${p.img}" alt="${esc(p.name)}" loading="lazy">`:`<span class="noimg">Photo not available</span>`;
+$("#catList").innerHTML=C.map(c=>{const f=P.filter(p=>p.cat==c),i=f.find(p=>p.img);return `<button class="cat" data-c="${esc(c)}">${i?`<img src="img/${i.img}" alt="">`:""}<b>${esc(c)}</b><small>${f.length} product${f.length==1?"":"s"}</small></button>`}).join("");
+$("#c").innerHTML+=C.map(c=>`<option>${esc(c)}</option>`).join("");
+document.querySelectorAll(".cat").forEach(b=>b.onclick=()=>{$("#c").value=b.dataset.c;render();$("#products").scrollIntoView({behavior:"smooth"})});
+function render(){const q=$("#q").value.trim().toLowerCase(),c=$("#c").value;
+ const f=P.filter(p=>(!c||p.cat==c)&&(!q||JSON.stringify([p.name,p.desc,p.cat,p.rows]).toLowerCase().includes(q)));
+ const n=f.reduce((a,p)=>a+parts(p).length,0);
+ $("#count").textContent=`${f.length} product${f.length==1?"":"s"} · ${n} part numbers`;
+ $("#grid").innerHTML=f.map(p=>`<button class="card" data-id="${p.id}"><div class="ph">${img(p)}</div><div class="cb"><span class="tag">${esc(p.cat)}</span><h3>${esc(p.name)}</h3><span class="parts">${parts(p).length?parts(p).length+" part #"+(parts(p).length>1?"s":"")+" · ":""}Catalog p.${p.page}</span><span class="price">${esc(price(p))}</span></div></button>`).join("")||"<p>No matching products.</p>";
+ document.querySelectorAll(".card").forEach(b=>b.onclick=()=>open_(b.dataset.id));}
+function open_(id){const p=P.find(x=>x.id==id);$("#dImg").innerHTML=img(p);
+ $("#dBody").innerHTML=`<span class="tag">${esc(p.cat)} · Catalog page ${p.page}</span><h3>${esc(p.name)}</h3><div class="price">${esc(price(p))}</div><p>${esc(p.desc)}</p>`+
+ (p.rows?`<div class="tw"><table><tr>${p.cols.map(c=>`<th>${esc(c)}</th>`).join("")}</tr>${p.rows.map(r=>`<tr>${r.map(x=>`<td>${esc(x||"—")}</td>`).join("")}</tr>`).join("")}</table></div>`:"")+
+ `<p class="note">Quantity-tier columns show price per unit at that quantity. Prices change frequently; call for current pricing.</p><a class="btn" href="${mail(p)}">Request a quote</a>`;
+ $("#dlg").showModal();location.hash="p-"+id;}
+$("#dlg").addEventListener("close",()=>{if(location.hash.startsWith("#p-"))history.replaceState(null,"",location.pathname)});
+$("#q").oninput=render;$("#c").onchange=render;render();
+if(location.hash.startsWith("#p-")&&P.find(x=>x.id==location.hash.slice(3)))open_(location.hash.slice(3));
+</script></body></html>
