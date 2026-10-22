@@ -48,7 +48,7 @@ a.pn{color:var(--brand);font-weight:700;text-decoration:underline;padding:6px 0;
 .li input,.fg input,.fg textarea{width:100%;min-width:0}.btn{font-family:inherit}
 @media(max-width:640px){#quote{padding:16px}.fg{grid-template-columns:1fr}.li{grid-template-columns:minmax(0,1fr) 76px 48px;gap:8px}.logo span{display:none}}
 .tw{overflow-x:auto}.note{color:var(--muted);font-size:13px}
-footer{margin-top:60px;background:#0b1d4f;color:#cbd5e1;padding:36px 0}footer .wrap{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px}footer b{color:#fff}
+footer{margin-top:60px;background:#0b1d4f;color:#cbd5e1;padding:36px 0}footer .wrap{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px}footer b{color:#fff}footer a{color:#fff;display:inline-block;padding:4px 0}
 @media(max-width:800px){.hero .wrap{grid-template-columns:1fr}.hero img{max-width:240px}.md{grid-template-columns:1fr}.md .ph{border-right:0;border-bottom:1px solid var(--line);min-height:200px}.nav a.l{display:none}}
 </style></head><body>
 <header><div class="wrap nav"><a class="logo" href="#top"><b>NCI</b><span> National Communications Inc.</span></a><span class="sp"></span><a class="l" href="#cats">Categories</a><a class="l" href="#products">Products</a></div></header>
@@ -77,8 +77,8 @@ footer{margin-top:60px;background:#0b1d4f;color:#cbd5e1;padding:36px 0}footer .w
 </main><div id="toast"></div><a id="cart" href="#quote" aria-label="View quote (0 items)"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="21" r="1.6"/><circle cx="19" cy="21" r="1.6"/><path d="M1 1h4l2.7 13.4a2 2 0 0 0 2 1.6h9.7a2 2 0 0 0 2-1.6L23 6H6"/></svg><span class="badge" id="qc">0</span></a>
 <dialog id="dlg"><button class="x" aria-label="Close" onclick="dlg.close()">×</button><div class="md"><div class="ph" id="dImg"></div><div class="mb" id="dBody"></div></div></dialog>
 <footer><div class="wrap"><div><b>National Communications Inc.</b><br>100 Branford Place<br>Newark, NJ 07102-1414</div>
-<div><b>Contact</b><br>Toll free 1-800-TRY-NCI-0<br>Tel (973) 733-9200 · Fax (973) 733-9288<br><a href="mailto:andy@trynci.com">andy@trynci.com</a></div>
-<div><b>Hours</b><br>Mon–Fri 7:30–5:30 EST<br>Saturday 7:30–1:30<br><a href="https://www.trynci.com">www.trynci.com</a></div></div></footer>
+<div><b>Contact</b><br>Toll free <a href="tel:+18008796240">1-800-TRY-NCI-0</a><br>Tel <a href="tel:+19737339200">(973) 733-9200</a> · Fax (973) 733-9288<br><a href="mailto:andy@trynci.com">andy@trynci.com</a></div>
+<div><b>Hours</b><br>Mon–Fri 7:30–5:30 EST<br>Saturday 7:30–1:30<br><a href="https://www.trynci.com/">www.trynci.com</a></div></div></footer>
 <script src="data.js"></script>
 <script>
 const P=window.PRODUCTS,C=window.CATEGORIES,$=s=>document.querySelector(s);
@@ -131,7 +131,7 @@ $("#qf").onsubmit=async e=>{e.preventDefault();const f=e.target,m=$("#qmsg"),d=O
  try{const r=await fetch("https://formsubmit.co/ajax/andy@trynci.com",{method:"POST",headers:{"Content-Type":"application/json",Accept:"application/json"},body:JSON.stringify(body)});const j=await r.json().catch(()=>({}));
   if(!r.ok||String(j.success)=="false")throw new Error(j.message||r.status);
   m.className="msg ok";m.textContent="Thank you! Your quote request was sent. We'll get back to you shortly.";Q=[{pn:"",qty:1}];drawLines();f.reset();
- }catch(err){m.className="msg err";m.innerHTML="Sorry, we couldn't send your request ("+esc(err.message)+"). Please <a href=\""+mt+"\">email it to andy@trynci.com</a> or call 1-800-TRY-NCI-0."}
+ }catch(err){m.className="msg err";m.innerHTML="Sorry, we couldn't send your request ("+esc(err.message)+"). Please <a href=\""+mt+"\">email it to andy@trynci.com</a> or call <a href=\"tel:+18008796240\">1-800-TRY-NCI-0</a> / <a href=\"tel:+19737339200\">(973) 733-9200</a>."}
  finally{$("#sb").disabled=false;$("#sb").textContent="Send quote request"}};
 drawLines();
 $("#q").oninput=render;$("#c").onchange=render;render();
