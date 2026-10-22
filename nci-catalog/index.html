@@ -34,7 +34,11 @@ dialog{border:0;border-radius:20px;padding:0;width:min(960px,96vw);max-height:92
 .md{display:grid;grid-template-columns:1fr 1.4fr}.md .ph{height:auto;min-height:280px;border:0;border-right:1px solid var(--line)}
 .mb{padding:24px;overflow:auto;max-height:92vh}.mb h3{font-size:24px;margin:6px 0 10px}.x{position:absolute;right:12px;top:12px;width:48px;height:48px;border-radius:50%;border:0;background:#f1f5f9;font-size:24px;cursor:pointer}
 table{width:100%;border-collapse:collapse;font-size:14px;margin:14px 0}th,td{padding:8px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}th{background:#f8fafc;font-size:12px;text-transform:uppercase;color:var(--muted)}
-a.pn{color:var(--brand);font-weight:700;text-decoration:underline;padding:6px 0;display:inline-block}.badge{background:#fff;color:var(--brand);border-radius:999px;padding:1px 9px;font-size:14px;margin-left:4px}
+a.pn{color:var(--brand);font-weight:700;text-decoration:underline;padding:6px 0;display:inline-block}a.pn.added{color:#15803d;text-decoration:none;background:#dcfce7;border-radius:8px;padding:6px 10px}.btn.added{background:#15803d}
+#cart{position:fixed;top:10px;right:12px;z-index:60;width:56px;height:56px;border-radius:50%;background:var(--brand);color:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 6px 18px rgba(0,0,0,.25);text-decoration:none;-webkit-tap-highlight-color:transparent}
+#cart .badge{position:absolute;top:-4px;right:-4px;min-width:24px;height:24px;line-height:24px;text-align:center;border-radius:12px;background:#fff;color:var(--brand);font-weight:800;font-size:14px;border:2px solid var(--brand);padding:0 5px}
+#cart.bump{animation:bump .4s}@keyframes bump{50%{transform:scale(1.18)}}
+.nav{padding-right:70px}
 #quote{background:#fff;border:1px solid var(--line);border-radius:20px;padding:24px;margin-top:44px;scroll-margin-top:80px}#quote h2{margin-top:0}
 .fg{display:grid;grid-template-columns:1fr 1fr;gap:14px}.fg label,.li label{display:flex;flex-direction:column;font-weight:600;font-size:14px;gap:6px}
 .fg input,.fg textarea,.li input{font:inherit;min-height:52px;border:1px solid var(--line);border-radius:12px;padding:10px 14px;background:#fff}.fg .full{grid-column:1/-1}
@@ -47,7 +51,7 @@ a.pn{color:var(--brand);font-weight:700;text-decoration:underline;padding:6px 0;
 footer{margin-top:60px;background:#0b1d4f;color:#cbd5e1;padding:36px 0}footer .wrap{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px}footer b{color:#fff}
 @media(max-width:800px){.hero .wrap{grid-template-columns:1fr}.hero img{max-width:240px}.md{grid-template-columns:1fr}.md .ph{border-right:0;border-bottom:1px solid var(--line);min-height:200px}.nav a.l{display:none}}
 </style></head><body>
-<header><div class="wrap nav"><a class="logo" href="#top"><b>NCI</b><span> National Communications Inc.</span></a><span class="sp"></span><a class="l" href="#cats">Categories</a><a class="l" href="#products">Products</a><a class="btn" href="#quote">Quote <span class="badge" id="qc">0</span></a></div></header>
+<header><div class="wrap nav"><a class="logo" href="#top"><b>NCI</b><span> National Communications Inc.</span></a><span class="sp"></span><a class="l" href="#cats">Categories</a><a class="l" href="#products">Products</a></div></header>
 <section class="hero" id="top"><div class="wrap"><div>
 <h1>A Full Service Cabling Systems Supplier</h1>
 <p>Bulk cable, connectors, fiber optics, networking products and telephone supplies — custom cable assemblies with same day shipping from Newark, NJ.</p>
@@ -70,7 +74,7 @@ footer{margin-top:60px;background:#0b1d4f;color:#cbd5e1;padding:36px 0}footer .w
 <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
 <p><button class="btn" type="submit" id="sb">Send quote request</button></p>
 <div class="msg" id="qmsg"></div></form></section>
-</main><div id="toast"></div>
+</main><div id="toast"></div><a id="cart" href="#quote" aria-label="View quote (0 items)"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="21" r="1.6"/><circle cx="19" cy="21" r="1.6"/><path d="M1 1h4l2.7 13.4a2 2 0 0 0 2 1.6h9.7a2 2 0 0 0 2-1.6L23 6H6"/></svg><span class="badge" id="qc">0</span></a>
 <dialog id="dlg"><button class="x" aria-label="Close" onclick="dlg.close()">×</button><div class="md"><div class="ph" id="dImg"></div><div class="mb" id="dBody"></div></div></dialog>
 <footer><div class="wrap"><div><b>National Communications Inc.</b><br>100 Branford Place<br>Newark, NJ 07102-1414</div>
 <div><b>Contact</b><br>Toll free 1-800-TRY-NCI-0<br>Tel (973) 733-9200 · Fax (973) 733-9288<br><a href="mailto:andy@trynci.com">andy@trynci.com</a></div>
@@ -93,22 +97,27 @@ function render(){const q=$("#q").value.trim().toLowerCase(),c=$("#c").value;
  document.querySelectorAll(".card").forEach(b=>b.onclick=()=>open_(b.dataset.id));}
 function open_(id){const p=P.find(x=>x.id==id);$("#dImg").innerHTML=img(p);
  $("#dBody").innerHTML=`<span class="tag">${esc(p.cat)} · Catalog page ${p.page}</span><h3>${esc(p.name)}</h3><p>${esc(p.desc)}</p>`+
- (p.rows?`<div class="tw"><table><tr>${p.cols.map(c=>`<th>${esc(c)}</th>`).join("")}</tr>${p.rows.map(r=>`<tr>${r.map((x,i)=>`<td>${i===pi(p)&&x?`<a class="pn" href="#" data-pn="${esc(x)}" data-pid="${p.id}" title="Add to quote">${esc(x)} ＋</a>`:esc(x||"—")}</td>`).join("")}</tr>`).join("")}</table></div>`:"")+
+ (p.rows?`<div class="tw"><table><tr>${p.cols.map(c=>`<th>${esc(c)}</th>`).join("")}</tr>${p.rows.map(r=>`<tr>${r.map((x,i)=>`<td>${i===pi(p)&&x?`<a class="pn" href="#" data-pn="${esc(x)}" data-pid="${p.id}" title="Add to quote">${esc(x)}</a>`:esc(x||"—")}</td>`).join("")}</tr>`).join("")}</table></div>`:"")+
  `<p class="note">Click any part number to add it to your quote for current pricing.</p><button class="btn" id="addAll">Add to quote</button> <a class="btn ghost" href="#quote" onclick="dlg.close()">View quote</a>`;
  $("#addAll").onclick=()=>{const ps=parts(p);(ps.length?ps:[p.name]).forEach(n=>addPart(n,p.name));};
- document.querySelectorAll("a.pn").forEach(a=>a.onclick=e=>{e.preventDefault();addPart(a.dataset.pn,p.name)});
+ $("#addAll").dataset.pns=JSON.stringify(parts(p).length?parts(p):[p.name]);
+ document.querySelectorAll("a.pn").forEach(a=>a.onclick=e=>{e.preventDefault();inQ(a.dataset.pn)?removePart(a.dataset.pn):addPart(a.dataset.pn,p.name)});markAdded();
  $("#dlg").showModal();location.hash="p-"+id;}
 $("#dlg").addEventListener("close",()=>{if(location.hash.startsWith("#p-"))history.replaceState(null,"",location.pathname)});
 // ---- Quote ----
 const ALL=[];P.forEach(p=>parts(p).forEach(n=>ALL.push([n,p.name])));
 $("#pnl").innerHTML=ALL.map(([n,m])=>`<option value="${esc(n)}">${esc(m)}</option>`).join("");
 let Q=JSON.parse(localStorage.getItem("nciQuote")||"[]");if(!Q.length)Q=[{pn:"",qty:1}];
-const save=()=>{localStorage.setItem("nciQuote",JSON.stringify(Q));$("#qc").textContent=Q.filter(l=>l.pn.trim()).length};
+const inQ=n=>Q.some(l=>l.pn.trim().toLowerCase()==String(n).toLowerCase());
+function markAdded(){document.querySelectorAll("a.pn").forEach(a=>{const on=inQ(a.dataset.pn);a.classList.toggle("added",on);a.textContent=a.dataset.pn+(on?" ✓ Added":" ＋");a.title=on?"In your quote — click to remove":"Add to quote"});
+ const b=$("#addAll");if(b){const all=JSON.parse(b.dataset.pns||"[]").every(inQ);b.classList.toggle("added",all);b.textContent=all?"✓ Added to quote":"Add to quote"}}
+const save=()=>{localStorage.setItem("nciQuote",JSON.stringify(Q));const n=Q.filter(l=>l.pn.trim()).length;$("#qc").textContent=n;$("#cart").setAttribute("aria-label","View quote ("+n+" line items)");markAdded()};
+function removePart(n){Q=Q.filter(l=>l.pn.trim().toLowerCase()!=n.toLowerCase());if(!Q.length)Q=[{pn:"",qty:1}];drawLines();toast("Removed "+n+" from quote")}
 function drawLines(){$("#lines").innerHTML=Q.map((l,i)=>`<div class="li"><label>Part number<input list="pnl" data-i="${i}" data-k="pn" value="${esc(l.pn)}" placeholder="e.g. 325103"></label><label>Qty<input type="number" min="1" inputmode="numeric" data-i="${i}" data-k="qty" value="${esc(l.qty)}"></label><button type="button" class="rm" data-i="${i}" aria-label="Remove">×</button></div>`).join("");
  document.querySelectorAll("#lines input").forEach(x=>x.oninput=()=>{Q[x.dataset.i][x.dataset.k]=x.value;save()});
  document.querySelectorAll("#lines .rm").forEach(b=>b.onclick=()=>{Q.splice(b.dataset.i,1);if(!Q.length)Q=[{pn:"",qty:1}];drawLines();save()});save();}
 function toast(t){const e=$("#toast");e.textContent=t;e.style.display="block";clearTimeout(toast.t);toast.t=setTimeout(()=>e.style.display="none",2200)}
-function addPart(n,name){const ex=Q.find(l=>l.pn==n);if(ex)ex.qty=(+ex.qty||0)+1;else{Q=Q.filter(l=>l.pn.trim());Q.push({pn:n,qty:1})}drawLines();toast("Added "+n+" to quote ("+Q.length+" items)")}
+function addPart(n,name){const ex=Q.find(l=>l.pn==n);if(ex)ex.qty=(+ex.qty||0)+1;else{Q=Q.filter(l=>l.pn.trim());Q.push({pn:n,qty:1})}drawLines();const c=$("#cart");c.classList.remove("bump");void c.offsetWidth;c.classList.add("bump");toast("Added "+n+" to quote ("+Q.length+" items)")}
 $("#addLine").onclick=()=>{Q.push({pn:"",qty:1});drawLines();document.querySelector("#lines .li:last-child input").focus()};
 const pname=n=>(ALL.find(a=>a[0].toLowerCase()==n.trim().toLowerCase())||[])[1]||"(not in catalog / free text)";
 $("#qf").onsubmit=async e=>{e.preventDefault();const f=e.target,m=$("#qmsg"),d=Object.fromEntries(new FormData(f));
