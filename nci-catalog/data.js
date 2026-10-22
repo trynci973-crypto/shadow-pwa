@@ -1,75 +1,812 @@
-// All content transcribed from NCI catalog (NCICAT.pdf) pages 1-10. Prices as printed (1997-era); "Call for pricing" where none printed.
+// Content transcribed from NCI catalog (NCICAT.pdf) pages 1-10. Prices intentionally omitted.
 window.CATEGORIES=["Hot Products","Apple / Mac Connectivity","Arcnet","IBM AS/400 & 3X","IBM Data Center","ATM Networking","Hubs & Adapters"];
 window.PRODUCTS=[
-{id:"scsi3",cat:"Hot Products",page:3,name:"SCSI3 Cable",img:"scsi3.jpg",price:"As low as $72.00",desc:"Featured in the catalog's Hot Products page.",rows:null},
-{id:"cat5",cat:"Hot Products",page:3,name:"CAT5 4 Pair Cable",img:"cat5.jpg",price:"As low as $195.00",desc:"Featured in the catalog's Hot Products page.",rows:null},
-{id:"rci",cat:"Hot Products",page:3,name:"RCI Master Console",img:"rci.jpg",price:"As low as $529.00",desc:"Featured Hot Product (see catalog page 91).",rows:null},
-{id:"100baset",cat:"Hot Products",page:3,name:"100BASE-T",img:"100baset.jpg",price:"As low as $599.00",desc:"Featured Hot Product (see catalog page 43).",rows:null},
-{id:"microtest",cat:"Hot Products",page:3,name:"Microtest",img:"microtest.jpg",price:"$3,195.00",desc:"Featured Hot Product.",rows:null},
-{id:"slt3",cat:"Hot Products",page:3,name:"SLT3",img:"slt3.jpg",price:"$122.00",desc:"Featured Hot Product.",rows:null},
-{id:"apple-cable",cat:"Apple / Mac Connectivity",page:5,name:"78 Ohm Shielded & Level 3 UTP Bulk Cable",img:"apple-cable.jpg",price:"From $.04/ft",
- desc:"78 ohm cable has 20awg tinned copper conductors with a 93% braid shield, available with a blue PVC jacket or a plenum rated jacket. Used for computer, Unisys TDI, SC party line, and broadcast cabling. Twisted pair cable has 24awg level 3 solid conductors, used for Telnet applications.",
- cols:["Description","Part #","1K-5K","500'-999'","1'-499'"],rows:[
- ["78 Ohm 20AWG Shielded PVC","271070","$200/K",".22",".26"],["78 Ohm 20AWG Shielded Plenum","291070","$450/K",".50",".60"],
- ["2PR. Level 3 Solid UTP PVC","213002AL3","$30/K",".04",".05"],["2PR. Level 3 Solid UTP Plenum","233002AL3","$68/K",".08",".11"]]},
-{id:"minidin",cat:"Apple / Mac Connectivity",page:5,name:"Mini DIN & RJ11 AppleTalk Connectors",img:"minidin.jpg",price:"From $.26",desc:"Mini DIN plugs, splices, terminators, modular plugs and couplers for AppleTalk.",
- cols:["Description","Part #","1-4","5-14","15-49"],rows:[
- ["Mini DIN 3 Plug for AppleTalk (A)","311215","$10.90","9.90","8.50"],["Mini DIN 4 Plug for AppleTalk (B)","311232","$2.50","2.25","2.00"],
- ["Mini DIN 8 Plug for AppleTalk (C)","311238","$2.60","2.50","2.40"],["Mini DIN 3 Splice Female (D)","311217","$7.90","7.70","7.40"],
- ["RJ11 4 Pos Terminator (E)","311201","$3.00","2.75","2.50"],["RJ11 4 Pos Modular Plug (F)","414005RSO","$.26",".26",".26"],["RJ11 F-F Coupler (G)","414060","$1.50","1.50","1.35"]]},
-{id:"imagewriter",cat:"Apple / Mac Connectivity",page:5,name:"ImageWriter & Modem Serial Cables",img:"imagewriter.jpg",price:"From $5.27",desc:"Serial cables used to connect ImageWriter I, II, and Hayes modems to your computer.",
- cols:["Description","Part #","1-4","5-14","15-50"],rows:[["ImageWriter II, MD8PM-MD8PM, 10FT (A)","Q30011-010","$5.27","$4.39","$3.99"],["ImageWriter I, High Speed Modem, 6FT (B)","Q30211-006","$10.55","$8.79","$7.99"]]},
-{id:"db9",cat:"Apple / Mac Connectivity",page:5,name:"DB9 Male Series Cables & Adapter",img:"db9.jpg",price:"From $7.00",desc:"Connects various peripherals to the DB9 port. DB9 Male Series.",
- cols:["Description","Part #","1-4","5-14","15-50"],rows:[["ImageWriter II, DB9M-MD8M, 6 FT","Q30311-006","$8.00","7.70","7.00"],["DB9M - MD8F Adapter","Q30621-A","$7.00","6.60","6.00"],["DB9M - MD8M, 6 FT","Q30711-006","$8.00","7.70","7.00"]]},
-{id:"hayes",cat:"Apple / Mac Connectivity",page:5,name:"Hayes Modem Cable, 5 Pin DIN M-DB25M",img:"hayes.jpg",price:"$11.75",desc:"Hayes modem cable, 5 pin DIN male to DB25 male, 6 ft.",
- cols:["Description","Part #","Price"],rows:[["Hayes Modem, 5 Pin DIN M-DB25M, 6FT","Q31411-006","$11.75"]]},
-{id:"md8",cat:"Apple / Mac Connectivity",page:5,name:"MD8 Straight & Extender Cables",img:"md8.jpg",price:"From $5.50",desc:"Mini DIN 8 straight and extender cables.",
- cols:["Description","Part #","1-4","5-15","16-50"],rows:[["MD8M-MD8M Straight - 6FT","Q32211-006","$5.50","4.50","3.99"],["MD8M-MD8M Straight - 12FT","Q32211-012","$7.50","6.50","5.99"],["MD8M-MD8F Extender - 6FT","Q32321-006","$5.50","4.50","3.99"],["MD8M-MD8F Extender - 12FT","Q32321-012","$7.50","6.50","5.99"]]},
-{id:"md4",cat:"Apple / Mac Connectivity",page:5,name:"MD4 Straight Cables",img:"md4.jpg",price:"From $6.50",desc:"Mini DIN 4 straight cables. (The MD4M-MD4F 6FT row's pricing did not extract cleanly from the PDF.)",
- cols:["Description","Part #","1-4","5-15","16-50"],rows:[["MD4M-MD4M Straight - 6FT","Q32411-006","$6.50","5.50","4.99"],["MD4M-MD4M Straight - 12FT","Q32411-012","$7.50","6.50","5.99"],["MD4M-MD4F Straight - 6FT","Q32511-006","Call for pricing","",""]]},
-{id:"telnet",cat:"Apple / Mac Connectivity",page:5,name:"Telnet - RJ11 to MD8M",img:"telnet.jpg",price:"$25.00",desc:"These connectors allow Apple Talk over phone cable. They use modular telephone wiring and jacks for a reliable and low cost network for your Macs. Other types available. Also sold in 10 and 50 packs. Please call for current pricing.",
- cols:["Description","Part #","Price"],rows:[["Telnet - RJ11 to MD8M","410159","$25.00"]]},
-{id:"ethertx",cat:"Apple / Mac Connectivity",page:5,name:"Ether Thin Transceivers",img:null,price:"$69.00",desc:"Connect your device directly to an Ethernet network. Features LED for transmit, receive, link, detect collision, power, and SQE switch. Available in AUI/UTP and Thin or AAUI/UTP and Thin.",
- cols:["Description","Part #","1-4","5-25"],rows:[["Ether 10-T-AUI/UTP","410194","$69.00","59.00"]]},
-{id:"rg62",cat:"Arcnet",page:6,name:"RG62A/U Arcnet Coax Cable",img:"rg62.jpg",price:"From $.22/ft",desc:"93 ohm star or bus topology with passive or active hubs.",
- cols:["Description","Part #","1K-20K","500'-999'","1'-499'"],rows:[["RG62A/U PVC","271060","$170/K",".22",".24"],["RG62A/U Plenum","291060","$300/K",".34",".37"]]},
-{id:"bnc-conn",cat:"Arcnet",page:6,name:"BNC Connectors for Arcnet",img:"bnc-conn.jpg",price:"From $.88",desc:"We carry the finest most cost effective BNC connectors for your Arcnet system.",
- cols:["Description","Part #","Each","10","50","100"],rows:[
- ["1PC BNC Male Rt. Angle Twist-On (A) - PVC","321036","$3.25","2.25","1.80","1.55"],["1PC BNC Female Twist-On (D) - PVC","321206","$2.40","2.25","2.15","1.95"],
- ["1PC BNC Male Twist-On (E) - PVC","321200","$2.10","1.90","1.70","1.50"],["2PC BNC Male Crimp (B) - PVC","321057","$2.50","1.50","1.25","1.00"],
- ["3PC BNC Male Crimp (C) - PVC","321055","$2.20","1.32","1.10",".88"],["3PC BNC Female Crimp - PVC","321050","$2.80","1.80","1.55","1.30"],
- ["3PC BNC Male Crimp - Plenum","321032","$2.50","1.50","1.25","1.00"],["3PC BNC Female Crimp - Plenum","321051","$3.00","2.00","1.75","1.50"],
- ["2PC BNC Male Crimp - Plenum","321058","$2.60","1.60","1.35","1.20"],["1PC BNC Male Twist-On - Plenum","321111","$2.88","2.05","1.60","1.35"],["1PC BNC Female Twist-On - Plenum","321113","$3.05","2.15","1.70","1.45"]]},
-{id:"bnc-boots",cat:"Arcnet",page:6,name:"BNC Adapters & Kits",img:"bnc-boots.jpg",price:"From $.50",desc:"Couplers, terminators and strain reliefs for BNC Arcnet cabling.",
- cols:["Description","Part #","Each","10","50","100"],rows:[["BNC F-F (Splice) Inline Coupler (A)","323105","$2.75","1.95","1.50","1.25"],["BNC Terminator - 93 Ohm (B)","326907","$3.25","1.90","1.50","1.15"],["BNC Full Boot Strain Relief (C)","323114","$1.00",".85",".75",".70"],["BNC 1/2 Boot Strain Relief","323116","$.50",".45",".40",".35"]]},
-{id:"star",cat:"Arcnet",page:6,name:"Arcnet Star Configuration Connector — Part #341010",img:"star.jpg",price:"$9.00",desc:"Used as the center of a Star Configuration in an Arcnet Network. (Product heading not legible in the PDF.)",
- cols:["Part #","Each","10","50","100"],rows:[["341010","$9.00","7.00","6.50","5.25"]]},
-{id:"arc-balun",cat:"Arcnet",page:6,name:"Arcnet RJ11 Balun - No Pigtail",img:"arc-balun.jpg",price:"$17.55",desc:"Designed to convert a 93 OHM coaxial signal to an unshielded twisted pair cable. Transparent at 2.5 Mbps for up to 100 meters.",
- cols:["Description","Part #","Price"],rows:[["Arcnet RJ11 Balun - No Pigtail","360029","$17.55"]]},
-{id:"arcnet-asm",cat:"Arcnet",page:6,name:"Arcnet Cable Assemblies",img:"arcnet-asm.jpg",price:"From $7.40",desc:"All the Arcnet cables you will ever need are made at NCI, featuring the highest quality cable, connectors, strain reliefs, and workmanship. Custom lengths and configurations with same day shipping. All cables 300% guaranteed: 100% on quality, 100% on delivery and 100% on your satisfaction. Optional suffix -FB = full boot assembly (add $2.00 per cable); -HB = half boot assembly (add $1.00 per cable). *** = length in feet.",
- cols:["Description","Part #","1-4","5-14","15-50"],rows:[["Arcnet Cable Assembly PVC 6 FT.","Q32711-006","$7.40","7.05","6.70"],["Arcnet Cable Assembly PVC 10 FT.","Q32711-010","$8.00","7.60","7.22"],["Arcnet Cable Assembly PVC 15 FT.","Q32711-015","$8.75","8.35","7.90"],["Arcnet Cable Assembly PVC 25 FT.","Q32711-025","$10.25","9.75","9.25"],["Custom Lengths - PVC","Q32711-***","$6.50/assembly + .22/ft","",""],["Custom Lengths - Plenum","Q32710-***","$6.50/assembly + .42/ft","",""]]},
-{id:"twinax-bulk",cat:"IBM AS/400 & 3X",page:7,name:"Twinax 20AWG Shielded Bulk Cable",img:null,price:"From $.33/ft",desc:"20awg stranded conductors (1 tinned and 1 bare copper) with a foil and an 86% braid shield. Used for computer, broadcast, IBM System 34, 36, 38, and AS/400 LAN cabling.",
- cols:["Description","Part #","1K-5K","500'-999'","1'-499'"],rows:[["20AWG Shielded PVC","271100","$300/K",".33",".39"],["20AWG Shielded Plenum","291100","$840/K",".92",".99"]]},
-{id:"twinax-asm",cat:"IBM AS/400 & 3X",page:7,name:"Twinax Cable Assemblies",img:"twinax-asm.jpg",price:"From $22.11",desc:"These cables are used for connecting 3X and AS/400 systems. They use 100 ohm Twinax cable and quality Twinaxial solder type connectors. Optional female connectors add $3.00 per end. *** = length in feet.",
- cols:["Length","PVC #","Price"],rows:[["6 FT","M31006","$22.11"],["10 FT","M31010","$23.65"],["15 FT","M31015","$25.57"],["25 FT","M31025","$29.43"],["50 FT","M31050","$39.05"],["Custom Length - PVC","M31***","$22.00/assembly + .45/ft"],["Custom Length - Plenum","M33***","$22.00/assembly + 1.05/ft"]]},
-{id:"twinax-conn",cat:"IBM AS/400 & 3X",page:7,name:"Twinax Connectors",img:"twinax-conn.jpg",price:"From $3.40",desc:"These connectors are used when installing Twinax cable for 3X and AS/400 systems. These precision connectors provide a quality termination.",
- cols:["Description","Part #","Ref #","1-14","15-24","25-500"],rows:[
- ["Male PVC-Crimp (D)","325103","","$3.40","2.85","2.59"],["Male Plenum-Crimp","325104","","$4.95","4.15","3.75"],["Male PVC-Solder","325105","7362229","$3.40","2.85","2.59"],["Male Plenum-Solder","325107","7362064","$4.95","4.15","3.75"],
- ["Female PVC-Solder","325109","6838959","$6.75","5.60","5.10"],["F-F Coupler (B)","325110","7362230","$3.90","3.25","2.95"],["Feedthru Panel Jack","325112","7369083","$4.45","4.00","3.50"],
- ["Panel Jack Solder Type","325114","7362179","$6.50","5.85","5.25"],["Terminator Male (A)","325130","6091068","$7.50","6.75","6.00"],["Terminator Female","325131","","$10.50","8.75","7.95"],
- ["\"T\" Connector F-F-F","325125","6851167","$7.50","6.75","6.00"],["\"T\" Connector F-M-F (C)","325120","","$7.50","6.75","6.00"]]},
-{id:"twinax-t",cat:"IBM AS/400 & 3X",page:7,name:"Twinax \"T\" Adapters",img:"twinax-t.jpg",price:"$34.00",desc:"The T adapters with 9 and 15 pin connectors are used with PCs equipped with 3X emulation boards. The Twinax T adapters are used with standard Twinax monitors and peripherals.",
- cols:["Description","Part #","Ref #","Each"],rows:[["\"T\" Twinax (A)","325140","6457102","$34.00"],["\"T\" DB9-Twinax (B)","325142","","$34.00"],["\"T\" DB15-Twinax (C)","325144","","$34.00"]]},
-{id:"twinax-balun",cat:"IBM AS/400 & 3X",page:7,name:"RJ11/RJ45 Twinax Baluns",img:"twinax-balun.jpg",price:"$18.75",desc:"An inexpensive twisted pair solution for your 3X or AS/400 system. Very high quality with 50 um modular jacks.",
- cols:["Description","Part #","Ref #","Price"],rows:[["RJ11-Twinax No Pigtail Pins 3 & 4","360002","1143","$18.75"],["RJ45-Twinax No Pigtail Pins 4 & 5","360004","4554","$18.75"]]},
-{id:"lic",cat:"IBM Data Center",page:7,name:"LIC Lineset Cables for Front End Processors",img:"lic.jpg",price:"From $73.50 + 89¢/ft",desc:"Lineset cables for 3704-3705, 3725 and 3745 Front End Processors. LIC 3 high speed and LIC 1 versions. *** = length in feet.",
- cols:["Description","Part #","Ref #","Price"],rows:[["LIC 1 (3704-3705)","Q21821-***","6089075","Call for pricing"],["3725 LIC 3 - High Speed","Q21721-***","1733820","$73.50 + 89¢/ft PVC"],["3745 LIC 3","Q21921-***","58X9485","Call for pricing"]]},
-{id:"ibm360",cat:"IBM Data Center",page:7,name:"IBM 360 / 370 Data Center Cables",img:"ibm360.jpg",price:"From $77.00 + 2.60/ft",desc:"For IBM 360, 370, and 380 series. Utilizes high speed mini coax cable. Call NCI for all your IBM Data Center needs. *** = length in feet.",
- cols:["Description","Part #","Ref #","Assembly + per ft. PVC"],rows:[["IBM 360 20 Cond. Blue","Q22021-***","5460185","$77.00 + 2.60"],["IBM 370 24 Cond. Blue","Q22121-***","","$82.00 + 2.90"]]},
-{id:"atm",cat:"ATM Networking",page:8,name:"Bay Networks LattisCell ATM Switches & Routers",img:"atm.jpg",price:"From $5,737",desc:"The LattisCell family of Asynchronous Transfer Mode (ATM) switches delivers a total ATM solution for high-speed networking environments. Working with SynOptics' ATM Network Management Application, the Connection Management System software, ATM SBus adapter cards and EtherCell Ethernet-to-ATM switches, the LattisCell products allow users to implement a complete, high-performance ATM network. ATM supports transfer rates from 1.544 Mbps to 10 Gbps.",
- cols:["Description","Ref #","Part #","Price"],rows:[["ATM Router Model 5780","AD1304006","315551","$19,125"],["ATM Router Model 5780","AD1304007","315553","$26,775"],["ATM Router Software VNR","AD1308001","315555","$5,737"],["LattisCell ATM Switch","10115R","315556","Call for pricing"],["LattisCell ATM Switch 16SC MMF SONET","10114R","315557","$29,797"],["LattisCell ATM Switch 14SC MMF 2BNC E3 w/RPS","10114R-E3","315559","$37,447"],["LattisCell ATM Switch 14SC MMF 2ST SMF w/RPS","10114R-SM","315561","$37,447"],["Ethernet/ATM Router Mux 13 12-10BT 1-155Mbps SONET OC-3C Fiber","10328-F","315563","$7,647"]]},
-{id:"smc",cat:"Hubs & Adapters",page:9,name:"SMC Arcnet Intelligent Hub, Coax, 8 Port",img:"smc.jpg",price:"$483.00",desc:"A low-profile, stackable 8-port hub designed to connect multiple workstations and additional hubs to an ARCNET network. In combination with SMC's Network Management Software, it provides a level of network fault tolerance previously unavailable in any ARCNET LAN. Versions exist for coax and twisted pair networks.",
- cols:["Description","Part #","Price"],rows:[["SMC Arcnet Intelligent Hub, Coax Version, 8 Port","534244","$483.00"]]},
-{id:"att365a",cat:"Hubs & Adapters",page:10,name:"AT&T 365A Adapter (Twinax-to-Twisted-Pair Balun)",img:"att365a.jpg",price:"$80.77",desc:"A twinaxial-to-twisted-pair balun that eliminates the need for twinaxial cable to connect equipment in IBM System 36/38 and AS/400 environments, carrying 1 Mbps signals over AT&T SYSTIMAX PDS unshielded twisted pair. Flame-retardant housing with a male twinaxial connector on one end and an 8-pin modular jack on the other. The 366A Terminating Adapter is included.",
- cols:["Description","Part #","Ref #","Price"],rows:[["AT&T 365A Adapter","400074","105282610","$80.77"]]}
+ {
+  "id": "scsi3",
+  "cat": "Hot Products",
+  "page": 3,
+  "name": "SCSI3 Cable",
+  "img": "scsi3.jpg",
+  "desc": "Featured in the catalog's Hot Products page.",
+  "rows": null
+ },
+ {
+  "id": "cat5",
+  "cat": "Hot Products",
+  "page": 3,
+  "name": "CAT5 4 Pair Cable",
+  "img": "cat5.jpg",
+  "desc": "Featured in the catalog's Hot Products page.",
+  "rows": null
+ },
+ {
+  "id": "rci",
+  "cat": "Hot Products",
+  "page": 3,
+  "name": "RCI Master Console",
+  "img": "rci.jpg",
+  "desc": "Featured Hot Product (see catalog page 91).",
+  "rows": null
+ },
+ {
+  "id": "100baset",
+  "cat": "Hot Products",
+  "page": 3,
+  "name": "100BASE-T",
+  "img": "100baset.jpg",
+  "desc": "Featured Hot Product (see catalog page 43).",
+  "rows": null
+ },
+ {
+  "id": "microtest",
+  "cat": "Hot Products",
+  "page": 3,
+  "name": "Microtest",
+  "img": "microtest.jpg",
+  "desc": "Featured Hot Product.",
+  "rows": null
+ },
+ {
+  "id": "slt3",
+  "cat": "Hot Products",
+  "page": 3,
+  "name": "SLT3",
+  "img": "slt3.jpg",
+  "desc": "Featured Hot Product.",
+  "rows": null
+ },
+ {
+  "id": "apple-cable",
+  "cat": "Apple / Mac Connectivity",
+  "page": 5,
+  "name": "78 Ohm Shielded & Level 3 UTP Bulk Cable",
+  "img": "apple-cable.jpg",
+  "desc": "78 ohm cable has 20awg tinned copper conductors with a 93% braid shield, available with a blue PVC jacket or a plenum rated jacket. Used for computer, Unisys TDI, SC party line, and broadcast cabling. Twisted pair cable has 24awg level 3 solid conductors, used for Telnet applications.",
+  "cols": [
+   "Description",
+   "Part #"
+  ],
+  "rows": [
+   [
+    "78 Ohm 20AWG Shielded PVC",
+    "271070"
+   ],
+   [
+    "78 Ohm 20AWG Shielded Plenum",
+    "291070"
+   ],
+   [
+    "2PR. Level 3 Solid UTP PVC",
+    "213002AL3"
+   ],
+   [
+    "2PR. Level 3 Solid UTP Plenum",
+    "233002AL3"
+   ]
+  ]
+ },
+ {
+  "id": "minidin",
+  "cat": "Apple / Mac Connectivity",
+  "page": 5,
+  "name": "Mini DIN & RJ11 AppleTalk Connectors",
+  "img": "minidin.jpg",
+  "desc": "Mini DIN plugs, splices, terminators, modular plugs and couplers for AppleTalk.",
+  "cols": [
+   "Description",
+   "Part #"
+  ],
+  "rows": [
+   [
+    "Mini DIN 3 Plug for AppleTalk (A)",
+    "311215"
+   ],
+   [
+    "Mini DIN 4 Plug for AppleTalk (B)",
+    "311232"
+   ],
+   [
+    "Mini DIN 8 Plug for AppleTalk (C)",
+    "311238"
+   ],
+   [
+    "Mini DIN 3 Splice Female (D)",
+    "311217"
+   ],
+   [
+    "RJ11 4 Pos Terminator (E)",
+    "311201"
+   ],
+   [
+    "RJ11 4 Pos Modular Plug (F)",
+    "414005RSO"
+   ],
+   [
+    "RJ11 F-F Coupler (G)",
+    "414060"
+   ]
+  ]
+ },
+ {
+  "id": "imagewriter",
+  "cat": "Apple / Mac Connectivity",
+  "page": 5,
+  "name": "ImageWriter & Modem Serial Cables",
+  "img": "imagewriter.jpg",
+  "desc": "Serial cables used to connect ImageWriter I, II, and Hayes modems to your computer.",
+  "cols": [
+   "Description",
+   "Part #"
+  ],
+  "rows": [
+   [
+    "ImageWriter II, MD8PM-MD8PM, 10FT (A)",
+    "Q30011-010"
+   ],
+   [
+    "ImageWriter I, High Speed Modem, 6FT (B)",
+    "Q30211-006"
+   ]
+  ]
+ },
+ {
+  "id": "db9",
+  "cat": "Apple / Mac Connectivity",
+  "page": 5,
+  "name": "DB9 Male Series Cables & Adapter",
+  "img": "db9.jpg",
+  "desc": "Connects various peripherals to the DB9 port. DB9 Male Series.",
+  "cols": [
+   "Description",
+   "Part #"
+  ],
+  "rows": [
+   [
+    "ImageWriter II, DB9M-MD8M, 6 FT",
+    "Q30311-006"
+   ],
+   [
+    "DB9M - MD8F Adapter",
+    "Q30621-A"
+   ],
+   [
+    "DB9M - MD8M, 6 FT",
+    "Q30711-006"
+   ]
+  ]
+ },
+ {
+  "id": "hayes",
+  "cat": "Apple / Mac Connectivity",
+  "page": 5,
+  "name": "Hayes Modem Cable, 5 Pin DIN M-DB25M",
+  "img": "hayes.jpg",
+  "desc": "Hayes modem cable, 5 pin DIN male to DB25 male, 6 ft.",
+  "cols": [
+   "Description",
+   "Part #"
+  ],
+  "rows": [
+   [
+    "Hayes Modem, 5 Pin DIN M-DB25M, 6FT",
+    "Q31411-006"
+   ]
+  ]
+ },
+ {
+  "id": "md8",
+  "cat": "Apple / Mac Connectivity",
+  "page": 5,
+  "name": "MD8 Straight & Extender Cables",
+  "img": "md8.jpg",
+  "desc": "Mini DIN 8 straight and extender cables.",
+  "cols": [
+   "Description",
+   "Part #"
+  ],
+  "rows": [
+   [
+    "MD8M-MD8M Straight - 6FT",
+    "Q32211-006"
+   ],
+   [
+    "MD8M-MD8M Straight - 12FT",
+    "Q32211-012"
+   ],
+   [
+    "MD8M-MD8F Extender - 6FT",
+    "Q32321-006"
+   ],
+   [
+    "MD8M-MD8F Extender - 12FT",
+    "Q32321-012"
+   ]
+  ]
+ },
+ {
+  "id": "md4",
+  "cat": "Apple / Mac Connectivity",
+  "page": 5,
+  "name": "MD4 Straight Cables",
+  "img": "md4.jpg",
+  "desc": "Mini DIN 4 straight cables.",
+  "cols": [
+   "Description",
+   "Part #"
+  ],
+  "rows": [
+   [
+    "MD4M-MD4M Straight - 6FT",
+    "Q32411-006"
+   ],
+   [
+    "MD4M-MD4M Straight - 12FT",
+    "Q32411-012"
+   ],
+   [
+    "MD4M-MD4F Straight - 6FT",
+    "Q32511-006"
+   ]
+  ]
+ },
+ {
+  "id": "telnet",
+  "cat": "Apple / Mac Connectivity",
+  "page": 5,
+  "name": "Telnet - RJ11 to MD8M",
+  "img": "telnet.jpg",
+  "desc": "These connectors allow Apple Talk over phone cable. They use modular telephone wiring and jacks for a reliable and low cost network for your Macs. Other types available. Also sold in 10 and 50 packs.",
+  "cols": [
+   "Description",
+   "Part #"
+  ],
+  "rows": [
+   [
+    "Telnet - RJ11 to MD8M",
+    "410159"
+   ]
+  ]
+ },
+ {
+  "id": "ethertx",
+  "cat": "Apple / Mac Connectivity",
+  "page": 5,
+  "name": "Ether Thin Transceivers",
+  "img": null,
+  "desc": "Connect your device directly to an Ethernet network. Features LED for transmit, receive, link, detect collision, power, and SQE switch. Available in AUI/UTP and Thin or AAUI/UTP and Thin.",
+  "cols": [
+   "Description",
+   "Part #"
+  ],
+  "rows": [
+   [
+    "Ether 10-T-AUI/UTP",
+    "410194"
+   ]
+  ]
+ },
+ {
+  "id": "rg62",
+  "cat": "Arcnet",
+  "page": 6,
+  "name": "RG62A/U Arcnet Coax Cable",
+  "img": "rg62.jpg",
+  "desc": "93 ohm star or bus topology with passive or active hubs.",
+  "cols": [
+   "Description",
+   "Part #"
+  ],
+  "rows": [
+   [
+    "RG62A/U PVC",
+    "271060"
+   ],
+   [
+    "RG62A/U Plenum",
+    "291060"
+   ]
+  ]
+ },
+ {
+  "id": "bnc-conn",
+  "cat": "Arcnet",
+  "page": 6,
+  "name": "BNC Connectors for Arcnet",
+  "img": "bnc-conn.jpg",
+  "desc": "We carry the finest most cost effective BNC connectors for your Arcnet system.",
+  "cols": [
+   "Description",
+   "Part #"
+  ],
+  "rows": [
+   [
+    "1PC BNC Male Rt. Angle Twist-On (A) - PVC",
+    "321036"
+   ],
+   [
+    "1PC BNC Female Twist-On (D) - PVC",
+    "321206"
+   ],
+   [
+    "1PC BNC Male Twist-On (E) - PVC",
+    "321200"
+   ],
+   [
+    "2PC BNC Male Crimp (B) - PVC",
+    "321057"
+   ],
+   [
+    "3PC BNC Male Crimp (C) - PVC",
+    "321055"
+   ],
+   [
+    "3PC BNC Female Crimp - PVC",
+    "321050"
+   ],
+   [
+    "3PC BNC Male Crimp - Plenum",
+    "321032"
+   ],
+   [
+    "3PC BNC Female Crimp - Plenum",
+    "321051"
+   ],
+   [
+    "2PC BNC Male Crimp - Plenum",
+    "321058"
+   ],
+   [
+    "1PC BNC Male Twist-On - Plenum",
+    "321111"
+   ],
+   [
+    "1PC BNC Female Twist-On - Plenum",
+    "321113"
+   ]
+  ]
+ },
+ {
+  "id": "bnc-boots",
+  "cat": "Arcnet",
+  "page": 6,
+  "name": "BNC Adapters & Kits",
+  "img": "bnc-boots.jpg",
+  "desc": "Couplers, terminators and strain reliefs for BNC Arcnet cabling.",
+  "cols": [
+   "Description",
+   "Part #"
+  ],
+  "rows": [
+   [
+    "BNC F-F (Splice) Inline Coupler (A)",
+    "323105"
+   ],
+   [
+    "BNC Terminator - 93 Ohm (B)",
+    "326907"
+   ],
+   [
+    "BNC Full Boot Strain Relief (C)",
+    "323114"
+   ],
+   [
+    "BNC 1/2 Boot Strain Relief",
+    "323116"
+   ]
+  ]
+ },
+ {
+  "id": "star",
+  "cat": "Arcnet",
+  "page": 6,
+  "name": "Arcnet Star Configuration Connector — Part #341010",
+  "img": "star.jpg",
+  "desc": "Used as the center of a Star Configuration in an Arcnet Network. (Product heading not legible in the PDF.)",
+  "cols": [
+   "Part #"
+  ],
+  "rows": [
+   [
+    "341010"
+   ]
+  ]
+ },
+ {
+  "id": "arc-balun",
+  "cat": "Arcnet",
+  "page": 6,
+  "name": "Arcnet RJ11 Balun - No Pigtail",
+  "img": "arc-balun.jpg",
+  "desc": "Designed to convert a 93 OHM coaxial signal to an unshielded twisted pair cable. Transparent at 2.5 Mbps for up to 100 meters.",
+  "cols": [
+   "Description",
+   "Part #"
+  ],
+  "rows": [
+   [
+    "Arcnet RJ11 Balun - No Pigtail",
+    "360029"
+   ]
+  ]
+ },
+ {
+  "id": "arcnet-asm",
+  "cat": "Arcnet",
+  "page": 6,
+  "name": "Arcnet Cable Assemblies",
+  "img": "arcnet-asm.jpg",
+  "desc": "All the Arcnet cables you will ever need are made at NCI, featuring the highest quality cable, connectors, strain reliefs, and workmanship. Custom lengths and configurations with same day shipping. All cables 300% guaranteed: 100% on quality, 100% on delivery and 100% on your satisfaction. Optional suffix -FB = full boot assembly; -HB = half boot assembly. *** = length in feet.",
+  "cols": [
+   "Description",
+   "Part #"
+  ],
+  "rows": [
+   [
+    "Arcnet Cable Assembly PVC 6 FT.",
+    "Q32711-006"
+   ],
+   [
+    "Arcnet Cable Assembly PVC 10 FT.",
+    "Q32711-010"
+   ],
+   [
+    "Arcnet Cable Assembly PVC 15 FT.",
+    "Q32711-015"
+   ],
+   [
+    "Arcnet Cable Assembly PVC 25 FT.",
+    "Q32711-025"
+   ],
+   [
+    "Custom Lengths - PVC",
+    "Q32711-***"
+   ],
+   [
+    "Custom Lengths - Plenum",
+    "Q32710-***"
+   ]
+  ]
+ },
+ {
+  "id": "twinax-bulk",
+  "cat": "IBM AS/400 & 3X",
+  "page": 7,
+  "name": "Twinax 20AWG Shielded Bulk Cable",
+  "img": null,
+  "desc": "20awg stranded conductors (1 tinned and 1 bare copper) with a foil and an 86% braid shield. Used for computer, broadcast, IBM System 34, 36, 38, and AS/400 LAN cabling.",
+  "cols": [
+   "Description",
+   "Part #"
+  ],
+  "rows": [
+   [
+    "20AWG Shielded PVC",
+    "271100"
+   ],
+   [
+    "20AWG Shielded Plenum",
+    "291100"
+   ]
+  ]
+ },
+ {
+  "id": "twinax-asm",
+  "cat": "IBM AS/400 & 3X",
+  "page": 7,
+  "name": "Twinax Cable Assemblies",
+  "img": "twinax-asm.jpg",
+  "desc": "These cables are used for connecting 3X and AS/400 systems. They use 100 ohm Twinax cable and quality Twinaxial solder type connectors. Optional female connectors available. *** = length in feet.",
+  "cols": [
+   "Length",
+   "PVC #"
+  ],
+  "rows": [
+   [
+    "6 FT",
+    "M31006"
+   ],
+   [
+    "10 FT",
+    "M31010"
+   ],
+   [
+    "15 FT",
+    "M31015"
+   ],
+   [
+    "25 FT",
+    "M31025"
+   ],
+   [
+    "50 FT",
+    "M31050"
+   ],
+   [
+    "Custom Length - PVC",
+    "M31***"
+   ],
+   [
+    "Custom Length - Plenum",
+    "M33***"
+   ]
+  ]
+ },
+ {
+  "id": "twinax-conn",
+  "cat": "IBM AS/400 & 3X",
+  "page": 7,
+  "name": "Twinax Connectors",
+  "img": "twinax-conn.jpg",
+  "desc": "These connectors are used when installing Twinax cable for 3X and AS/400 systems. These precision connectors provide a quality termination.",
+  "cols": [
+   "Description",
+   "Part #",
+   "Ref #"
+  ],
+  "rows": [
+   [
+    "Male PVC-Crimp (D)",
+    "325103",
+    ""
+   ],
+   [
+    "Male Plenum-Crimp",
+    "325104",
+    ""
+   ],
+   [
+    "Male PVC-Solder",
+    "325105",
+    "7362229"
+   ],
+   [
+    "Male Plenum-Solder",
+    "325107",
+    "7362064"
+   ],
+   [
+    "Female PVC-Solder",
+    "325109",
+    "6838959"
+   ],
+   [
+    "F-F Coupler (B)",
+    "325110",
+    "7362230"
+   ],
+   [
+    "Feedthru Panel Jack",
+    "325112",
+    "7369083"
+   ],
+   [
+    "Panel Jack Solder Type",
+    "325114",
+    "7362179"
+   ],
+   [
+    "Terminator Male (A)",
+    "325130",
+    "6091068"
+   ],
+   [
+    "Terminator Female",
+    "325131",
+    ""
+   ],
+   [
+    "\"T\" Connector F-F-F",
+    "325125",
+    "6851167"
+   ],
+   [
+    "\"T\" Connector F-M-F (C)",
+    "325120",
+    ""
+   ]
+  ]
+ },
+ {
+  "id": "twinax-t",
+  "cat": "IBM AS/400 & 3X",
+  "page": 7,
+  "name": "Twinax \"T\" Adapters",
+  "img": "twinax-t.jpg",
+  "desc": "The T adapters with 9 and 15 pin connectors are used with PCs equipped with 3X emulation boards. The Twinax T adapters are used with standard Twinax monitors and peripherals.",
+  "cols": [
+   "Description",
+   "Part #",
+   "Ref #"
+  ],
+  "rows": [
+   [
+    "\"T\" Twinax (A)",
+    "325140",
+    "6457102"
+   ],
+   [
+    "\"T\" DB9-Twinax (B)",
+    "325142",
+    ""
+   ],
+   [
+    "\"T\" DB15-Twinax (C)",
+    "325144",
+    ""
+   ]
+  ]
+ },
+ {
+  "id": "twinax-balun",
+  "cat": "IBM AS/400 & 3X",
+  "page": 7,
+  "name": "RJ11/RJ45 Twinax Baluns",
+  "img": "twinax-balun.jpg",
+  "desc": "An inexpensive twisted pair solution for your 3X or AS/400 system. Very high quality with 50 um modular jacks.",
+  "cols": [
+   "Description",
+   "Part #",
+   "Ref #"
+  ],
+  "rows": [
+   [
+    "RJ11-Twinax No Pigtail Pins 3 & 4",
+    "360002",
+    "1143"
+   ],
+   [
+    "RJ45-Twinax No Pigtail Pins 4 & 5",
+    "360004",
+    "4554"
+   ]
+  ]
+ },
+ {
+  "id": "lic",
+  "cat": "IBM Data Center",
+  "page": 7,
+  "name": "LIC Lineset Cables for Front End Processors",
+  "img": "lic.jpg",
+  "desc": "Lineset cables for 3704-3705, 3725 and 3745 Front End Processors. LIC 3 high speed and LIC 1 versions. *** = length in feet.",
+  "cols": [
+   "Description",
+   "Part #",
+   "Ref #"
+  ],
+  "rows": [
+   [
+    "LIC 1 (3704-3705)",
+    "Q21821-***",
+    "6089075"
+   ],
+   [
+    "3725 LIC 3 - High Speed",
+    "Q21721-***",
+    "1733820"
+   ],
+   [
+    "3745 LIC 3",
+    "Q21921-***",
+    "58X9485"
+   ]
+  ]
+ },
+ {
+  "id": "ibm360",
+  "cat": "IBM Data Center",
+  "page": 7,
+  "name": "IBM 360 / 370 Data Center Cables",
+  "img": "ibm360.jpg",
+  "desc": "For IBM 360, 370, and 380 series. Utilizes high speed mini coax cable. Call NCI for all your IBM Data Center needs. *** = length in feet.",
+  "cols": [
+   "Description",
+   "Part #",
+   "Ref #"
+  ],
+  "rows": [
+   [
+    "IBM 360 20 Cond. Blue",
+    "Q22021-***",
+    "5460185"
+   ],
+   [
+    "IBM 370 24 Cond. Blue",
+    "Q22121-***",
+    ""
+   ]
+  ]
+ },
+ {
+  "id": "atm",
+  "cat": "ATM Networking",
+  "page": 8,
+  "name": "Bay Networks LattisCell ATM Switches & Routers",
+  "img": "atm.jpg",
+  "desc": "The LattisCell family of Asynchronous Transfer Mode (ATM) switches delivers a total ATM solution for high-speed networking environments. Working with SynOptics' ATM Network Management Application, the Connection Management System software, ATM SBus adapter cards and EtherCell Ethernet-to-ATM switches, the LattisCell products allow users to implement a complete, high-performance ATM network. ATM supports transfer rates from 1.544 Mbps to 10 Gbps.",
+  "cols": [
+   "Description",
+   "Ref #",
+   "Part #"
+  ],
+  "rows": [
+   [
+    "ATM Router Model 5780",
+    "AD1304006",
+    "315551"
+   ],
+   [
+    "ATM Router Model 5780",
+    "AD1304007",
+    "315553"
+   ],
+   [
+    "ATM Router Software VNR",
+    "AD1308001",
+    "315555"
+   ],
+   [
+    "LattisCell ATM Switch",
+    "10115R",
+    "315556"
+   ],
+   [
+    "LattisCell ATM Switch 16SC MMF SONET",
+    "10114R",
+    "315557"
+   ],
+   [
+    "LattisCell ATM Switch 14SC MMF 2BNC E3 w/RPS",
+    "10114R-E3",
+    "315559"
+   ],
+   [
+    "LattisCell ATM Switch 14SC MMF 2ST SMF w/RPS",
+    "10114R-SM",
+    "315561"
+   ],
+   [
+    "Ethernet/ATM Router Mux 13 12-10BT 1-155Mbps SONET OC-3C Fiber",
+    "10328-F",
+    "315563"
+   ]
+  ]
+ },
+ {
+  "id": "smc",
+  "cat": "Hubs & Adapters",
+  "page": 9,
+  "name": "SMC Arcnet Intelligent Hub, Coax, 8 Port",
+  "img": "smc.jpg",
+  "desc": "A low-profile, stackable 8-port hub designed to connect multiple workstations and additional hubs to an ARCNET network. In combination with SMC's Network Management Software, it provides a level of network fault tolerance previously unavailable in any ARCNET LAN. Versions exist for coax and twisted pair networks.",
+  "cols": [
+   "Description",
+   "Part #"
+  ],
+  "rows": [
+   [
+    "SMC Arcnet Intelligent Hub, Coax Version, 8 Port",
+    "534244"
+   ]
+  ]
+ },
+ {
+  "id": "att365a",
+  "cat": "Hubs & Adapters",
+  "page": 10,
+  "name": "AT&T 365A Adapter (Twinax-to-Twisted-Pair Balun)",
+  "img": "att365a.jpg",
+  "desc": "A twinaxial-to-twisted-pair balun that eliminates the need for twinaxial cable to connect equipment in IBM System 36/38 and AS/400 environments, carrying 1 Mbps signals over AT&T SYSTIMAX PDS unshielded twisted pair. Flame-retardant housing with a male twinaxial connector on one end and an 8-pin modular jack on the other. The 366A Terminating Adapter is included.",
+  "cols": [
+   "Description",
+   "Part #",
+   "Ref #"
+  ],
+  "rows": [
+   [
+    "AT&T 365A Adapter",
+    "400074",
+    "105282610"
+   ]
+  ]
+ }
 ];
