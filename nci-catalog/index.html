@@ -27,7 +27,7 @@ h2{font-size:28px;margin:44px 0 16px}
 .card{background:var(--card);border:1px solid var(--line);border-radius:var(--r);overflow:hidden;display:flex;flex-direction:column;cursor:pointer;transition:transform .15s,box-shadow .15s;text-align:left;font:inherit;padding:0;color:inherit}
 .card:hover{transform:translateY(-3px);box-shadow:0 12px 30px rgba(15,23,42,.1)}
 .ph{background:#fff;height:190px;display:flex;align-items:center;justify-content:center;padding:16px;border-bottom:1px solid var(--line)}
-.ph img{max-width:100%;max-height:100%;object-fit:contain}.noimg{color:var(--muted);font-size:14px}
+.card{content-visibility:auto;contain-intrinsic-size:320px}.ph img{max-width:100%;max-height:100%;object-fit:contain}.noimg{color:var(--muted);font-size:14px}
 .cb{padding:14px 16px 16px;display:flex;flex-direction:column;gap:6px;flex:1}.tag{font-size:12px;text-transform:uppercase;letter-spacing:.06em;color:var(--brand2);font-weight:700}
 .cb h3{margin:0;font-size:17px;line-height:1.3}.price{margin-top:auto;font-weight:800;font-size:18px}.parts{color:var(--muted);font-size:14px}
 dialog{border:0;border-radius:20px;padding:0;width:min(960px,96vw);max-height:92vh;box-shadow:0 40px 80px rgba(0,0,0,.35)}dialog::backdrop{background:rgba(15,23,42,.6)}
@@ -62,7 +62,7 @@ footer{margin-top:60px;background:#0b1d4f;color:#cbd5e1;padding:36px 0}footer .w
 <h2 id="cats">Shop by category</h2><div class="cats" id="catList"></div>
 <h2 id="products">Products</h2>
 <div class="tools"><input id="q" type="search" placeholder="Search name, part #, description…" aria-label="Search"><select id="c" aria-label="Category"><option value="">All categories</option></select></div>
-<div class="count" id="count"></div><div class="grid" id="grid"></div>
+<div class="count" id="count"></div><div class="grid" id="grid"></div><p style="text-align:center"><button class="btn ghost" id="more" type="button">Show more</button></p>
 <p class="note">Click any part number for current pricing.</p>
 <section id="quote"><h2>Request a Quote</h2><p class="note">Add parts from any product (click a part number or "Add to quote"), or type them below. We'll reply with current pricing and availability.</p>
 <form id="qf" novalidate><div class="fg">
@@ -86,14 +86,17 @@ const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",
 const parts=p=>(p.rows||[]).map(r=>r[p.cols.findIndex(c=>/part|pvc #/i.test(c))]).filter(Boolean);
 const pi=p=>p.cols.findIndex(c=>/part|pvc #/i.test(c));
 const img=p=>p.img?`<img src="img/${p.img}" alt="${esc(p.name)}" loading="lazy">`:`<span class="noimg">Photo not available</span>`;
-$("#catList").innerHTML=C.map(c=>{const f=P.filter(p=>p.cat==c),i=f.find(p=>p.img);return `<button class="cat" data-c="${esc(c)}">${i?`<img src="img/${i.img}" alt="">`:""}<b>${esc(c)}</b><small>${f.length} product${f.length==1?"":"s"}</small></button>`}).join("");
+$("#catList").innerHTML=C.map(c=>{const f=P.filter(p=>p.cat==c),i=f.find(p=>p.img);return `<button class="cat" data-c="${esc(c)}">${i?`<img src="img/${i.img}" alt="" loading="lazy">`:""}<b>${esc(c)}</b><small>${f.length} product${f.length==1?"":"s"}</small></button>`}).join("");
 $("#c").innerHTML+=C.map(c=>`<option>${esc(c)}</option>`).join("");
 document.querySelectorAll(".cat").forEach(b=>b.onclick=()=>{$("#c").value=b.dataset.c;render();$("#products").scrollIntoView({behavior:"smooth"})});
-function render(){const q=$("#q").value.trim().toLowerCase(),c=$("#c").value;
- const f=P.filter(p=>(!c||p.cat==c)&&(!q||JSON.stringify([p.name,p.desc,p.cat,p.rows]).toLowerCase().includes(q)));
+P.forEach(p=>p._s=[p.name,p.desc||"",p.cat,"p"+p.page,...(p.rows||[]).flat()].join(" ").toLowerCase());
+let SHOW=48,LAST=[];
+function render(more){if(!more)SHOW=48;const q=$("#q").value.trim().toLowerCase(),c=$("#c").value,qs=q.split(/\s+/).filter(Boolean);
+ const f=P.filter(p=>(!c||p.cat==c)&&qs.every(w=>p._s.includes(w)));LAST=f;
  const n=f.reduce((a,p)=>a+parts(p).length,0);
  $("#count").textContent=`${f.length} product${f.length==1?"":"s"} · ${n} part numbers`;
- $("#grid").innerHTML=f.map(p=>`<button class="card" data-id="${p.id}"><div class="ph">${img(p)}</div><div class="cb"><span class="tag">${esc(p.cat)}</span><h3>${esc(p.name)}</h3><span class="parts">${parts(p).length?parts(p).length+" part #"+(parts(p).length>1?"s":"")+" · ":""}Catalog p.${p.page}</span><span class="price">View part numbers →</span></div></button>`).join("")||"<p>No matching products.</p>";
+ $("#grid").innerHTML=f.slice(0,SHOW).map(p=>`<button class="card" data-id="${p.id}"><div class="ph">${img(p)}</div><div class="cb"><span class="tag">${esc(p.cat)}</span><h3>${esc(p.name)}</h3><span class="parts">${parts(p).length?parts(p).length+" part #"+(parts(p).length>1?"s":"")+" · ":""}Catalog p.${p.page}</span><span class="price">View part numbers →</span></div></button>`).join("")||"<p>No matching products.</p>";
+ $("#more").style.display=f.length>SHOW?"":"none";$("#more").textContent=`Show more (${f.length-SHOW} more)`;
  document.querySelectorAll(".card").forEach(b=>b.onclick=()=>open_(b.dataset.id));}
 function open_(id){const p=P.find(x=>x.id==id);$("#dImg").innerHTML=img(p);
  $("#dBody").innerHTML=`<span class="tag">${esc(p.cat)} · Catalog page ${p.page}</span><h3>${esc(p.name)}</h3><p>${esc(p.desc)}</p>`+
@@ -106,7 +109,8 @@ function open_(id){const p=P.find(x=>x.id==id);$("#dImg").innerHTML=img(p);
 $("#dlg").addEventListener("close",()=>{if(location.hash.startsWith("#p-"))history.replaceState(null,"",location.pathname)});
 // ---- Quote ----
 const ALL=[];P.forEach(p=>parts(p).forEach(n=>ALL.push([n,p.name])));
-$("#pnl").innerHTML=ALL.map(([n,m])=>`<option value="${esc(n)}">${esc(m)}</option>`).join("");
+function fillPn(v){v=(v||"").trim().toLowerCase();const r=[];if(v)for(const a of ALL){if(a[0].toLowerCase().startsWith(v)||(v.length>2&&a[1].toLowerCase().includes(v)))r.push(a);if(r.length>=40)break}
+ $("#pnl").innerHTML=r.map(([n,m])=>`<option value="${esc(n)}">${esc(m)}</option>`).join("");}
 let Q=JSON.parse(localStorage.getItem("nciQuote")||"[]");if(!Q.length)Q=[{pn:"",qty:1}];
 const inQ=n=>Q.some(l=>l.pn.trim().toLowerCase()==String(n).toLowerCase());
 function markAdded(){document.querySelectorAll("a.pn").forEach(a=>{const on=inQ(a.dataset.pn);a.classList.toggle("added",on);a.textContent=a.dataset.pn+(on?" ✓ Added":" ＋");a.title=on?"In your quote — click to remove":"Add to quote"});
@@ -114,7 +118,7 @@ function markAdded(){document.querySelectorAll("a.pn").forEach(a=>{const on=inQ(
 const save=()=>{localStorage.setItem("nciQuote",JSON.stringify(Q));const n=Q.filter(l=>l.pn.trim()).length;$("#qc").textContent=n;$("#cart").setAttribute("aria-label","View quote ("+n+" line items)");markAdded()};
 function removePart(n){Q=Q.filter(l=>l.pn.trim().toLowerCase()!=n.toLowerCase());if(!Q.length)Q=[{pn:"",qty:1}];drawLines();toast("Removed "+n+" from quote")}
 function drawLines(){$("#lines").innerHTML=Q.map((l,i)=>`<div class="li"><label>Part number<input list="pnl" data-i="${i}" data-k="pn" value="${esc(l.pn)}" placeholder="e.g. 325103"></label><label>Qty<input type="number" min="1" inputmode="numeric" data-i="${i}" data-k="qty" value="${esc(l.qty)}"></label><button type="button" class="rm" data-i="${i}" aria-label="Remove">×</button></div>`).join("");
- document.querySelectorAll("#lines input").forEach(x=>x.oninput=()=>{Q[x.dataset.i][x.dataset.k]=x.value;save()});
+ document.querySelectorAll("#lines input").forEach(x=>x.oninput=()=>{Q[x.dataset.i][x.dataset.k]=x.value;if(x.dataset.k=="pn")fillPn(x.value);save()});
  document.querySelectorAll("#lines .rm").forEach(b=>b.onclick=()=>{Q.splice(b.dataset.i,1);if(!Q.length)Q=[{pn:"",qty:1}];drawLines();save()});save();}
 function toast(t){const e=$("#toast");e.textContent=t;e.style.display="block";clearTimeout(toast.t);toast.t=setTimeout(()=>e.style.display="none",2200)}
 function addPart(n,name){const ex=Q.find(l=>l.pn==n);if(ex)ex.qty=(+ex.qty||0)+1;else{Q=Q.filter(l=>l.pn.trim());Q.push({pn:n,qty:1})}drawLines();const c=$("#cart");c.classList.remove("bump");void c.offsetWidth;c.classList.add("bump");toast("Added "+n+" to quote ("+Q.length+" items)")}
@@ -134,6 +138,6 @@ $("#qf").onsubmit=async e=>{e.preventDefault();const f=e.target,m=$("#qmsg"),d=O
  }catch(err){m.className="msg err";m.innerHTML="Sorry, we couldn't send your request ("+esc(err.message)+"). Please <a href=\""+mt+"\">email it to ncisales@trynci.com</a> or call <a href=\"tel:+19733253151\">(973) 325-3151</a>."}
  finally{$("#sb").disabled=false;$("#sb").textContent="Send quote request"}};
 drawLines();
-$("#q").oninput=render;$("#c").onchange=render;render();
+let qt;$("#q").oninput=()=>{clearTimeout(qt);qt=setTimeout(()=>render(),150)};$("#c").onchange=()=>render();$("#more").onclick=()=>{SHOW+=48;render(true)};render();
 if(location.hash.startsWith("#p-")&&P.find(x=>x.id==location.hash.slice(3)))open_(location.hash.slice(3));
 </script></body></html>
