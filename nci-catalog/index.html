@@ -34,15 +34,24 @@ dialog{border:0;border-radius:20px;padding:0;width:min(960px,96vw);max-height:92
 .md{display:grid;grid-template-columns:1fr 1.4fr}.md .ph{height:auto;min-height:280px;border:0;border-right:1px solid var(--line)}
 .mb{padding:24px;overflow:auto;max-height:92vh}.mb h3{font-size:24px;margin:6px 0 10px}.x{position:absolute;right:12px;top:12px;width:48px;height:48px;border-radius:50%;border:0;background:#f1f5f9;font-size:24px;cursor:pointer}
 table{width:100%;border-collapse:collapse;font-size:14px;margin:14px 0}th,td{padding:8px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}th{background:#f8fafc;font-size:12px;text-transform:uppercase;color:var(--muted)}
-a.pn{color:var(--brand);font-weight:700;text-decoration:underline;padding:6px 0;display:inline-block}.tw{overflow-x:auto}.note{color:var(--muted);font-size:13px}
+a.pn{color:var(--brand);font-weight:700;text-decoration:underline;padding:6px 0;display:inline-block}.badge{background:#fff;color:var(--brand);border-radius:999px;padding:1px 9px;font-size:14px;margin-left:4px}
+#quote{background:#fff;border:1px solid var(--line);border-radius:20px;padding:24px;margin-top:44px;scroll-margin-top:80px}#quote h2{margin-top:0}
+.fg{display:grid;grid-template-columns:1fr 1fr;gap:14px}.fg label,.li label{display:flex;flex-direction:column;font-weight:600;font-size:14px;gap:6px}
+.fg input,.fg textarea,.li input{font:inherit;min-height:52px;border:1px solid var(--line);border-radius:12px;padding:10px 14px;background:#fff}.fg .full{grid-column:1/-1}
+.li{display:grid;grid-template-columns:2fr 110px 52px;gap:10px;align-items:end;margin-bottom:10px}.rm{min-height:52px;border-radius:12px;border:1px solid var(--line);background:#fff;font-size:22px;cursor:pointer}
+.msg{margin-top:14px;padding:14px;border-radius:12px;display:none}.msg.ok{display:block;background:#ecfdf5;color:#065f46}.msg.err{display:block;background:#fef2f2;color:#991b1b}
+#toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);background:#0f172a;color:#fff;padding:12px 20px;border-radius:999px;z-index:99;display:none}
+.li input,.fg input,.fg textarea{width:100%;min-width:0}.btn{font-family:inherit}
+@media(max-width:640px){#quote{padding:16px}.fg{grid-template-columns:1fr}.li{grid-template-columns:minmax(0,1fr) 76px 48px;gap:8px}.logo span{display:none}}
+.tw{overflow-x:auto}.note{color:var(--muted);font-size:13px}
 footer{margin-top:60px;background:#0b1d4f;color:#cbd5e1;padding:36px 0}footer .wrap{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px}footer b{color:#fff}
 @media(max-width:800px){.hero .wrap{grid-template-columns:1fr}.hero img{max-width:240px}.md{grid-template-columns:1fr}.md .ph{border-right:0;border-bottom:1px solid var(--line);min-height:200px}.nav a.l{display:none}}
 </style></head><body>
-<header><div class="wrap nav"><a class="logo" href="#top"><b>NCI</b> National Communications Inc.</a><span class="sp"></span><a class="l" href="#cats">Categories</a><a class="l" href="#products">Products</a><a class="btn" href="mailto:andy@trynci.com?subject=Quote%20request">Request a quote</a></div></header>
+<header><div class="wrap nav"><a class="logo" href="#top"><b>NCI</b><span> National Communications Inc.</span></a><span class="sp"></span><a class="l" href="#cats">Categories</a><a class="l" href="#products">Products</a><a class="btn" href="#quote">Quote <span class="badge" id="qc">0</span></a></div></header>
 <section class="hero" id="top"><div class="wrap"><div>
 <h1>A Full Service Cabling Systems Supplier</h1>
 <p>Bulk cable, connectors, fiber optics, networking products and telephone supplies — custom cable assemblies with same day shipping from Newark, NJ.</p>
-<div class="cta"><a class="btn" href="#products">Browse products</a><a class="btn ghost" href="mailto:andy@trynci.com?subject=Quote%20request">Request a quote</a></div>
+<div class="cta"><a class="btn" href="#products">Browse products</a><a class="btn ghost" href="#quote">Request a quote</a></div>
 <div class="badges"><span>Custom products</span><span>Same day shipping</span><span>Fast turnaround on quotes</span><span>Quantity discounts</span><span>Credit available</span><span>Federal buyers welcome</span></div>
 </div><img src="img/cover.jpg" alt="NCI catalog cover"></div></section>
 <main class="wrap">
@@ -51,7 +60,17 @@ footer{margin-top:60px;background:#0b1d4f;color:#cbd5e1;padding:36px 0}footer .w
 <div class="tools"><input id="q" type="search" placeholder="Search name, part #, description…" aria-label="Search"><select id="c" aria-label="Category"><option value="">All categories</option></select></div>
 <div class="count" id="count"></div><div class="grid" id="grid"></div>
 <p class="note">Click any part number for current pricing.</p>
-</main>
+<section id="quote"><h2>Request a Quote</h2><p class="note">Add parts from any product (click a part number or "Add to quote"), or type them below. We'll reply with current pricing and availability.</p>
+<form id="qf" novalidate><div class="fg">
+<label>Name *<input name="name" required autocomplete="name"></label><label>Company<input name="company" autocomplete="organization"></label>
+<label>Email *<input name="email" type="email" required autocomplete="email"></label><label>Phone<input name="phone" type="tel" autocomplete="tel"></label></div>
+<h3>Parts</h3><div id="lines"></div><datalist id="pnl"></datalist>
+<button type="button" class="btn ghost" id="addLine">＋ Add another part</button>
+<div class="fg" style="margin-top:14px"><label class="full">Notes<textarea name="notes" rows="4"></textarea></label></div>
+<input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
+<p><button class="btn" type="submit" id="sb">Send quote request</button></p>
+<div class="msg" id="qmsg"></div></form></section>
+</main><div id="toast"></div>
 <dialog id="dlg"><button class="x" aria-label="Close" onclick="dlg.close()">×</button><div class="md"><div class="ph" id="dImg"></div><div class="mb" id="dBody"></div></div></dialog>
 <footer><div class="wrap"><div><b>National Communications Inc.</b><br>100 Branford Place<br>Newark, NJ 07102-1414</div>
 <div><b>Contact</b><br>Toll free 1-800-TRY-NCI-0<br>Tel (973) 733-9200 · Fax (973) 733-9288<br><a href="mailto:andy@trynci.com">andy@trynci.com</a></div>
@@ -62,8 +81,6 @@ const P=window.PRODUCTS,C=window.CATEGORIES,$=s=>document.querySelector(s);
 const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 const parts=p=>(p.rows||[]).map(r=>r[p.cols.findIndex(c=>/part|pvc #/i.test(c))]).filter(Boolean);
 const pi=p=>p.cols.findIndex(c=>/part|pvc #/i.test(c));
-const pmail=(p,n)=>"mailto:andy@trynci.com?subject="+encodeURIComponent("Current price request: "+n)+"&body="+encodeURIComponent("Hello Andy,\n\nPlease send current price and availability for:\n\nPart #: "+n+"\nProduct: "+p.name+"\n\nThank you.");
-const mail=p=>"mailto:andy@trynci.com?subject="+encodeURIComponent("Quote request: "+p.name)+"&body="+encodeURIComponent("Hello Andy,\n\nPlease send a quote for:\n\nProduct: "+p.name+"\nCategory: "+p.cat+(parts(p).length?"\nPart #: "+parts(p).join(", "):"")+"\nCatalog page: "+p.page+"\nQuantity: \n\nName:\nCompany:\nPhone:\n\nThank you.");
 const img=p=>p.img?`<img src="img/${p.img}" alt="${esc(p.name)}" loading="lazy">`:`<span class="noimg">Photo not available</span>`;
 $("#catList").innerHTML=C.map(c=>{const f=P.filter(p=>p.cat==c),i=f.find(p=>p.img);return `<button class="cat" data-c="${esc(c)}">${i?`<img src="img/${i.img}" alt="">`:""}<b>${esc(c)}</b><small>${f.length} product${f.length==1?"":"s"}</small></button>`}).join("");
 $("#c").innerHTML+=C.map(c=>`<option>${esc(c)}</option>`).join("");
@@ -76,10 +93,38 @@ function render(){const q=$("#q").value.trim().toLowerCase(),c=$("#c").value;
  document.querySelectorAll(".card").forEach(b=>b.onclick=()=>open_(b.dataset.id));}
 function open_(id){const p=P.find(x=>x.id==id);$("#dImg").innerHTML=img(p);
  $("#dBody").innerHTML=`<span class="tag">${esc(p.cat)} · Catalog page ${p.page}</span><h3>${esc(p.name)}</h3><p>${esc(p.desc)}</p>`+
- (p.rows?`<div class="tw"><table><tr>${p.cols.map(c=>`<th>${esc(c)}</th>`).join("")}</tr>${p.rows.map(r=>`<tr>${r.map((x,i)=>`<td>${i===pi(p)&&x?`<a class="pn" href="${pmail(p,x)}">${esc(x)}</a>`:esc(x||"—")}</td>`).join("")}</tr>`).join("")}</table></div>`:"")+
- `<p class="note">Click any part number for current pricing.</p><a class="btn" href="${mail(p)}">Request a quote</a>`;
+ (p.rows?`<div class="tw"><table><tr>${p.cols.map(c=>`<th>${esc(c)}</th>`).join("")}</tr>${p.rows.map(r=>`<tr>${r.map((x,i)=>`<td>${i===pi(p)&&x?`<a class="pn" href="#" data-pn="${esc(x)}" data-pid="${p.id}" title="Add to quote">${esc(x)} ＋</a>`:esc(x||"—")}</td>`).join("")}</tr>`).join("")}</table></div>`:"")+
+ `<p class="note">Click any part number to add it to your quote for current pricing.</p><button class="btn" id="addAll">Add to quote</button> <a class="btn ghost" href="#quote" onclick="dlg.close()">View quote</a>`;
+ $("#addAll").onclick=()=>{const ps=parts(p);(ps.length?ps:[p.name]).forEach(n=>addPart(n,p.name));};
+ document.querySelectorAll("a.pn").forEach(a=>a.onclick=e=>{e.preventDefault();addPart(a.dataset.pn,p.name)});
  $("#dlg").showModal();location.hash="p-"+id;}
 $("#dlg").addEventListener("close",()=>{if(location.hash.startsWith("#p-"))history.replaceState(null,"",location.pathname)});
+// ---- Quote ----
+const ALL=[];P.forEach(p=>parts(p).forEach(n=>ALL.push([n,p.name])));
+$("#pnl").innerHTML=ALL.map(([n,m])=>`<option value="${esc(n)}">${esc(m)}</option>`).join("");
+let Q=JSON.parse(localStorage.getItem("nciQuote")||"[]");if(!Q.length)Q=[{pn:"",qty:1}];
+const save=()=>{localStorage.setItem("nciQuote",JSON.stringify(Q));$("#qc").textContent=Q.filter(l=>l.pn.trim()).length};
+function drawLines(){$("#lines").innerHTML=Q.map((l,i)=>`<div class="li"><label>Part number<input list="pnl" data-i="${i}" data-k="pn" value="${esc(l.pn)}" placeholder="e.g. 325103"></label><label>Qty<input type="number" min="1" inputmode="numeric" data-i="${i}" data-k="qty" value="${esc(l.qty)}"></label><button type="button" class="rm" data-i="${i}" aria-label="Remove">×</button></div>`).join("");
+ document.querySelectorAll("#lines input").forEach(x=>x.oninput=()=>{Q[x.dataset.i][x.dataset.k]=x.value;save()});
+ document.querySelectorAll("#lines .rm").forEach(b=>b.onclick=()=>{Q.splice(b.dataset.i,1);if(!Q.length)Q=[{pn:"",qty:1}];drawLines();save()});save();}
+function toast(t){const e=$("#toast");e.textContent=t;e.style.display="block";clearTimeout(toast.t);toast.t=setTimeout(()=>e.style.display="none",2200)}
+function addPart(n,name){const ex=Q.find(l=>l.pn==n);if(ex)ex.qty=(+ex.qty||0)+1;else{Q=Q.filter(l=>l.pn.trim());Q.push({pn:n,qty:1})}drawLines();toast("Added "+n+" to quote ("+Q.length+" items)")}
+$("#addLine").onclick=()=>{Q.push({pn:"",qty:1});drawLines();document.querySelector("#lines .li:last-child input").focus()};
+const pname=n=>(ALL.find(a=>a[0].toLowerCase()==n.trim().toLowerCase())||[])[1]||"(not in catalog / free text)";
+$("#qf").onsubmit=async e=>{e.preventDefault();const f=e.target,m=$("#qmsg"),d=Object.fromEntries(new FormData(f));
+ const L=Q.filter(l=>l.pn.trim());m.className="msg";
+ if(!d.name.trim()||!/^\S+@\S+\.\S+$/.test(d.email)){m.className="msg err";m.textContent="Please enter your name and a valid email.";return}
+ if(!L.length){m.className="msg err";m.textContent="Please add at least one part number.";return}
+ const items=L.map((l,i)=>`${i+1}. Part # ${l.pn.trim()} — Qty ${l.qty||1} — ${pname(l.pn)}`).join("\n");
+ const body={_subject:"NCI Quote Request",_template:"table",_captcha:"false",_honey:d._honey,_replyto:d.email,Name:d.name,Company:d.company,Email:d.email,Phone:d.phone,"Line items":items,"Number of lines":L.length,Notes:d.notes};
+ const mt="mailto:andy@trynci.com?subject="+encodeURIComponent("NCI Quote Request")+"&body="+encodeURIComponent(`Name: ${d.name}\nCompany: ${d.company}\nEmail: ${d.email}\nPhone: ${d.phone}\n\n${items}\n\nNotes: ${d.notes}`);
+ $("#sb").disabled=true;$("#sb").textContent="Sending…";
+ try{const r=await fetch("https://formsubmit.co/ajax/andy@trynci.com",{method:"POST",headers:{"Content-Type":"application/json",Accept:"application/json"},body:JSON.stringify(body)});const j=await r.json().catch(()=>({}));
+  if(!r.ok||String(j.success)=="false")throw new Error(j.message||r.status);
+  m.className="msg ok";m.textContent="Thank you! Your quote request was sent. We'll get back to you shortly.";Q=[{pn:"",qty:1}];drawLines();f.reset();
+ }catch(err){m.className="msg err";m.innerHTML="Sorry, we couldn't send your request ("+esc(err.message)+"). Please <a href=\""+mt+"\">email it to andy@trynci.com</a> or call 1-800-TRY-NCI-0."}
+ finally{$("#sb").disabled=false;$("#sb").textContent="Send quote request"}};
+drawLines();
 $("#q").oninput=render;$("#c").onchange=render;render();
 if(location.hash.startsWith("#p-")&&P.find(x=>x.id==location.hash.slice(3)))open_(location.hash.slice(3));
 </script></body></html>
