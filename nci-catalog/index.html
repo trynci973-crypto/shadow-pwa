@@ -1,7 +1,7 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>National Communications Inc. — Product Catalog</title>
-<meta name="description" content="NCI — A full service cabling systems supplier. Newark, NJ.">
+<meta name="description" content="NCI — A full service cabling systems supplier.">
 <style>
 :root{--ink:#0f172a;--muted:#64748b;--bg:#f6f7fb;--card:#fff;--brand:#c8102e;--brand2:#1d3a8a;--line:#e5e7eb;--r:16px}
 *{box-sizing:border-box}body{margin:0;font:17px/1.5 system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;color:var(--ink);background:var(--bg)}
@@ -54,7 +54,7 @@ footer{margin-top:60px;background:#0b1d4f;color:#cbd5e1;padding:36px 0}footer .w
 <header><div class="wrap nav"><a class="logo" href="#top"><b>NCI</b><span> National Communications Inc.</span></a><span class="sp"></span><a class="l" href="#cats">Categories</a><a class="l" href="#products">Products</a></div></header>
 <section class="hero" id="top"><div class="wrap"><div>
 <h1>A Full Service Cabling Systems Supplier</h1>
-<p>Bulk cable, connectors, fiber optics, networking products and telephone supplies — custom cable assemblies with same day shipping from Newark, NJ.</p>
+<p>Bulk cable, connectors, fiber optics, networking products and telephone supplies — custom cable assemblies with same day shipping.</p>
 <div class="cta"><a class="btn" href="#products">Browse products</a><a class="btn ghost" href="#quote">Request a quote</a></div>
 <div class="badges"><span>Custom products</span><span>Same day shipping</span><span>Fast turnaround on quotes</span><span>Quantity discounts</span><span>Credit available</span><span>Federal buyers welcome</span></div>
 </div><img src="img/cover.jpg" alt="NCI catalog cover"></div></section>
@@ -76,9 +76,9 @@ footer{margin-top:60px;background:#0b1d4f;color:#cbd5e1;padding:36px 0}footer .w
 <div class="msg" id="qmsg"></div></form></section>
 </main><div id="toast"></div><a id="cart" href="#quote" aria-label="View quote (0 items)"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="21" r="1.6"/><circle cx="19" cy="21" r="1.6"/><path d="M1 1h4l2.7 13.4a2 2 0 0 0 2 1.6h9.7a2 2 0 0 0 2-1.6L23 6H6"/></svg><span class="badge" id="qc">0</span></a>
 <dialog id="dlg"><button class="x" aria-label="Close" onclick="dlg.close()">×</button><div class="md"><div class="ph" id="dImg"></div><div class="mb" id="dBody"></div></div></dialog>
-<footer><div class="wrap"><div><b>National Communications Inc.</b><br>100 Branford Place<br>Newark, NJ 07102-1414</div>
-<div><b>Contact</b><br>Toll free <a href="tel:+18008796240">1-800-TRY-NCI-0</a><br>Tel <a href="tel:+19737339200">(973) 733-9200</a> · Fax (973) 733-9288<br><a href="mailto:andy@trynci.com">andy@trynci.com</a></div>
-<div><b>Hours</b><br>Mon–Fri 7:30–5:30 EST<br>Saturday 7:30–1:30<br><a href="https://www.trynci.com/">www.trynci.com</a></div></div></footer>
+<footer><div class="wrap"><div><b>National Communications Inc.</b></div>
+<div><b>Contact</b><br>Tel <a href="tel:+19733253151">(973) 325-3151</a> · Fax (973) 325-2690<br><a href="mailto:ncisales@trynci.com">ncisales@trynci.com</a></div>
+<div><b>Hours</b><br>Mon–Fri 9–4 EST<br><a href="https://www.trynci.com/">www.trynci.com</a></div></div></footer>
 <script src="data.js"></script>
 <script>
 const P=window.PRODUCTS,C=window.CATEGORIES,$=s=>document.querySelector(s);
@@ -126,12 +126,12 @@ $("#qf").onsubmit=async e=>{e.preventDefault();const f=e.target,m=$("#qmsg"),d=O
  if(!L.length){m.className="msg err";m.textContent="Please add at least one part number.";return}
  const items=L.map((l,i)=>`${i+1}. Part # ${l.pn.trim()} — Qty ${l.qty||1} — ${pname(l.pn)}`).join("\n");
  const body={_subject:"NCI Quote Request",_template:"table",_captcha:"false",_honey:d._honey,_replyto:d.email,Name:d.name,Company:d.company,Email:d.email,Phone:d.phone,"Line items":items,"Number of lines":L.length,Notes:d.notes};
- const mt="mailto:andy@trynci.com?subject="+encodeURIComponent("NCI Quote Request")+"&body="+encodeURIComponent(`Name: ${d.name}\nCompany: ${d.company}\nEmail: ${d.email}\nPhone: ${d.phone}\n\n${items}\n\nNotes: ${d.notes}`);
+ const mt="mailto:ncisales@trynci.com?subject="+encodeURIComponent("NCI Quote Request")+"&body="+encodeURIComponent(`Name: ${d.name}\nCompany: ${d.company}\nEmail: ${d.email}\nPhone: ${d.phone}\n\n${items}\n\nNotes: ${d.notes}`);
  $("#sb").disabled=true;$("#sb").textContent="Sending…";
- try{const r=await fetch("https://formsubmit.co/ajax/andy@trynci.com",{method:"POST",headers:{"Content-Type":"application/json",Accept:"application/json"},body:JSON.stringify(body)});const j=await r.json().catch(()=>({}));
+ try{const r=await fetch("https://formsubmit.co/ajax/ncisales@trynci.com",{method:"POST",headers:{"Content-Type":"application/json",Accept:"application/json"},body:JSON.stringify(body)});const j=await r.json().catch(()=>({}));
   if(!r.ok||String(j.success)=="false")throw new Error(j.message||r.status);
   m.className="msg ok";m.textContent="Thank you! Your quote request was sent. We'll get back to you shortly.";Q=[{pn:"",qty:1}];drawLines();f.reset();
- }catch(err){m.className="msg err";m.innerHTML="Sorry, we couldn't send your request ("+esc(err.message)+"). Please <a href=\""+mt+"\">email it to andy@trynci.com</a> or call <a href=\"tel:+18008796240\">1-800-TRY-NCI-0</a> / <a href=\"tel:+19737339200\">(973) 733-9200</a>."}
+ }catch(err){m.className="msg err";m.innerHTML="Sorry, we couldn't send your request ("+esc(err.message)+"). Please <a href=\""+mt+"\">email it to ncisales@trynci.com</a> or call <a href=\"tel:+19733253151\">(973) 325-3151</a>."}
  finally{$("#sb").disabled=false;$("#sb").textContent="Send quote request"}};
 drawLines();
 $("#q").oninput=render;$("#c").onchange=render;render();
