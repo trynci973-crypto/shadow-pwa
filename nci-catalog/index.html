@@ -50,6 +50,10 @@ a.pn{white-space:nowrap;color:var(--brand);font-weight:700;text-decoration:under
 .tw{overflow-x:auto}.note{color:var(--muted);font-size:13px}
 footer{margin-top:60px;background:#0b1d4f;color:#cbd5e1;padding:36px 0}footer .wrap{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px}footer b{color:#fff}footer a{color:#fff;display:inline-block;padding:4px 0}
 @media(max-width:800px){.hero .wrap{grid-template-columns:1fr}.hero img{max-width:240px}.md{grid-template-columns:1fr}.md .ph{border-right:0;border-bottom:1px solid var(--line);min-height:200px}.nav a.l{display:none}}
+.pglink{color:#c8102e;font-weight:700;text-decoration:underline;border-radius:4px;padding:1px 4px;animation:pgpulse 2.4s ease-in-out infinite}
+.pglink:hover,.pglink:focus{animation:none;background:#c8102e;color:#fff}
+@keyframes pgpulse{0%,100%{color:#c8102e;background:transparent;box-shadow:none}50%{color:#0057b8;background:rgba(0,87,184,.10);box-shadow:0 0 6px rgba(0,87,184,.45)}}
+@media (prefers-reduced-motion:reduce){.pglink{animation:none}}
 </style></head><body>
 <header><div class="wrap nav"><a class="logo" href="#top"><b>NCI</b><span> National Communications Inc.</span></a><span class="sp"></span><a class="l" href="#cats">Categories</a><a class="l" href="#products">Products</a><a class="l" href="viewer.html">View Catalog Online</a></div></header>
 <section class="hero" id="top"><div class="wrap"><div>
@@ -99,7 +103,7 @@ function render(more){if(!more)SHOW=48;const q=$("#q").value.trim().toLowerCase(
  $("#more").style.display=f.length>SHOW?"":"none";$("#more").textContent=`Show more (${f.length-SHOW} more)`;
  document.querySelectorAll(".card").forEach(b=>b.onclick=()=>open_(b.dataset.id));}
 function open_(id){const p=P.find(x=>x.id==id);$("#dImg").innerHTML=img(p);
- $("#dBody").innerHTML=`<span class="tag">${esc(p.cat)} · <a href="viewer.html?page=${p.page}">Catalog page ${p.page}</a></span><h3>${esc(p.name)}</h3><p>${esc(p.desc)}</p>`+
+ $("#dBody").innerHTML=`<span class="tag">${esc(p.cat)} · <a class="pglink" href="viewer.html?page=${p.page}" title="View this page in the online catalog">Catalog page ${p.page}</a></span><h3>${esc(p.name)}</h3><p>${esc(p.desc)}</p>`+
  (p.rows?`<div class="tw"><table><tr>${p.cols.map(c=>`<th>${esc(c)}</th>`).join("")}</tr>${p.rows.map(r=>`<tr>${r.map((x,i)=>`<td>${i===pi(p)&&x?`<a class="pn" href="#" data-pn="${esc(x)}" data-pid="${p.id}" title="Add to quote">${esc(x)}</a>`:esc(x||"—")}</td>`).join("")}</tr>`).join("")}</table></div>`:"")+
  `<p class="note">Click any part number to add it to your quote for current pricing.</p><button class="btn" id="addAll">Add to quote</button> <a class="btn ghost" href="#quote" onclick="dlg.close()">View quote</a>`;
  $("#addAll").onclick=()=>{const ps=parts(p);(ps.length?ps:[p.name]).forEach(n=>addPart(n,p.name));};
