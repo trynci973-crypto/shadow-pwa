@@ -96,7 +96,7 @@ document.querySelectorAll(".cat").forEach(b=>b.onclick=()=>{$("#c").value=b.data
 P.forEach(p=>p._s=[p.name,p.desc||"",p.cat,"p"+p.page,...(p.rows||[]).flat()].join(" ").toLowerCase());
 let SHOW=48,LAST=[];
 function render(more){if(!more)SHOW=48;const q=$("#q").value.trim().toLowerCase(),c=$("#c").value,qs=q.split(/\s+/).filter(Boolean);
- const f=P.filter(p=>(!c||p.cat==c)&&qs.every(w=>p._s.includes(w)));LAST=f;
+ const f=P.filter(p=>(!c||p.cat==c)&&qs.every(w=>p._s.includes(w)));LAST=f;if(c||q)SHOW=Math.max(SHOW,f.length);
  const n=f.reduce((a,p)=>a+parts(p).length,0);
  $("#count").textContent=`${f.length} product${f.length==1?"":"s"} · ${n} part numbers`;
  $("#grid").innerHTML=f.slice(0,SHOW).map(p=>`<button class="card" data-id="${p.id}"><div class="ph">${img(p)}</div><div class="cb"><span class="tag">${esc(p.cat)}</span><h3>${esc(p.name)}</h3><span class="parts">${parts(p).length?parts(p).length+" part #"+(parts(p).length>1?"s":"")+" · ":""}Catalog p.${p.page}</span><span class="price">View part numbers →</span></div></button>`).join("")||"<p>No matching products.</p>";
